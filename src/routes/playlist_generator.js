@@ -95,7 +95,7 @@ export default function PlaylistGenerator() {
         addTracksToPlaylist(playlistId, songs);
     }
     */
-   
+
     return (
         <html>
             <div class="playlist-generator screen">
@@ -147,7 +147,7 @@ export default function PlaylistGenerator() {
                             <div class="optional opensans-normal-white-27px">[optional]</div>
                         </div>
                     </div>
-                    <button onClick={createPlaylistByTempo} className="create-button">Create</button>
+                    {/* <button onClick={createPlaylistByTempo} className="create-button">Create</button> */}
                 </div>
             </div>
         </html>
