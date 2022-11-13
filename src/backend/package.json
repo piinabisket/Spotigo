@@ -4,8 +4,10 @@
   "description": "",
   "main": "backend.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+   "test": "npx eslint .",
+   "dev": "nodemon backend.js",
+   "start": "node backend.js"
+ },
   "author": "",
   "license": "ISC",
   "dependencies": {
