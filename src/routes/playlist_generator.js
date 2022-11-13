@@ -86,7 +86,7 @@ export default function PlaylistGenerator() {
         return tempoMatched;
 
     }
-    */
+    
     async function createPlaylistByTempo() {
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);
@@ -94,7 +94,8 @@ export default function PlaylistGenerator() {
         console.log(songs)
         addTracksToPlaylist(playlistId, songs);
     }
-
+    */
+   
     return (
         <html>
             <div class="playlist-generator screen">
