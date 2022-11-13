@@ -16,7 +16,7 @@ export default function PlaylistGenerator() {
         });
         return data.id;
     }
-
+    /*
     // Creates an empty playlist
     const createPlaylist = async (userId) => {
         const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
@@ -36,6 +36,7 @@ export default function PlaylistGenerator() {
         const data = await axios.post(url, JSON.stringify(playlistData), config);
         return data.data.id;
     }
+    */
 
     //Add songs into playlist
     const addTracksToPlaylist = async (playlistId, songs) => {
@@ -51,7 +52,7 @@ export default function PlaylistGenerator() {
                 'Content-Type': 'application/json'
             }
         }
-        const data = await axios.post(url, JSON.stringify(trackData), config);
+        //const data = await axios.post(url, JSON.stringify(trackData), config);
     }
 
     // Function to get track tempo
@@ -64,7 +65,7 @@ export default function PlaylistGenerator() {
         });
         return data.track.tempo;
     }
-
+    /*
     // Returns a list of song that matches input tempo
     async function getSongsWithTempo() {
         let data = await liked_songs();
@@ -85,7 +86,7 @@ export default function PlaylistGenerator() {
         return tempoMatched;
 
     }
-
+    */
     async function createPlaylistByTempo() {
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);

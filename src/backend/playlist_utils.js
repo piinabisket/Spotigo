@@ -50,21 +50,21 @@ async function getPlaylists(genre, bpm){
    else if (bpm && !genre){
        result = await findPlaylistByBPM(bpm);
    } 
-   else if (bpm && genre){
-      result = await findPlaylistByBoth(genre, bpm);
-   }  
+   // else if (bpm && genre){
+   //    result = await findPlaylistByBoth(genre, bpm);
+   // }  
    return result;  
 }
 
-async function findPlaylistByName(name){
-   const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-   return await playlistModel.find({'name':name});
-}
+// async function findPlaylistByName(name){
+//    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
+//    return await playlistModel.find({'name':name});
+// }
 
-async function findPlaylistBySid(sid){
-   const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-   return await playlistModel.find({'sid':sid});
-}
+// async function findPlaylistBySid(sid){
+//    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
+//    return await playlistModel.find({'sid':sid});
+// }
 
 async function findPlaylistByGenre(genre){
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
