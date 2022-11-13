@@ -50,6 +50,6 @@ app.post('/generated', async (req, res) => {
        res.status(500).end();
 });
 
-app.listen(port, () => {
-   console.log(`Example app listening at http://localhost:4000`);
-});
+app.listen(process.env.PORT || port, () => {
+   console.log("REST API is listening.");
+ });
