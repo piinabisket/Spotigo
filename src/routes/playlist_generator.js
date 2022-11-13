@@ -18,24 +18,24 @@ export default function PlaylistGenerator() {
    //  }
    //  /*
     // Creates an empty playlist
-    const createPlaylist = async (userId) => {
-        const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
-        const title = playlist_title.value
-        const playlistData = {
-            name: title,
-            description: description.value,
-            public: true
-        };
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-                'Content-Type': 'application/json'
-            }
-        }
+   //  const createPlaylist = async (userId) => {
+   //      const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
+   //      const title = playlist_title.value
+   //      const playlistData = {
+   //          name: title,
+   //          description: description.value,
+   //          public: true
+   //      };
+   //      const config = {
+   //          headers: {
+   //              Authorization: `Bearer ${localStorage.accessToken}`,
+   //              'Content-Type': 'application/json'
+   //          }
+   //      }
 
-        const data = await axios.post(url, JSON.stringify(playlistData), config);
-        return data.data.id;
-    }
+   //      const data = await axios.post(url, JSON.stringify(playlistData), config);
+   //      return data.data.id;
+   //  }
 
     //Add songs into playlist
    //  const addTracksToPlaylist = async (playlistId, songs) => {
@@ -55,15 +55,15 @@ export default function PlaylistGenerator() {
    //  }
 
     // Function to get track tempo
-    const getAudioAnalysis = async (track_id) => {
-      //   const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
-        const { data } = await axios.get(url, {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-            }
-        });
-        return data.track.tempo;
-    }
+   //  const getAudioAnalysis = async (track_id) => {
+   //    //   const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
+   //      const { data } = await axios.get(url, {
+   //          headers: {
+   //              Authorization: `Bearer ${localStorage.accessToken}`,
+   //          }
+   //      });
+   //      return data.track.tempo;
+   //  }
     /*
     // Returns a list of song that matches input tempo
     async function getSongsWithTempo() {
