@@ -1,22 +1,22 @@
 //import { useEffect } from "react";
 //import { Router } from "react-router-dom";
 import axios from 'axios';
-import { liked_songs } from './home_auth';
+// import { liked_songs } from './home_auth';
 import "../assets/generator.css"
 
 export default function PlaylistGenerator() {
 
     // Get username so we can use it in createPlaylist
-    const getUserId = async () => {
-        const url = 'https://api.spotify.com/v1/me';
-        const { data } = await axios.get(url, {
-            headers : {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-            }
-        });
-        return data.id;
-    }
-    /*
+   //  const getUserId = async () => {
+   //      const url = 'https://api.spotify.com/v1/me';
+   //      const { data } = await axios.get(url, {
+   //          headers : {
+   //              Authorization: `Bearer ${localStorage.accessToken}`,
+   //          }
+   //      });
+   //      return data.id;
+   //  }
+   //  /*
     // Creates an empty playlist
     const createPlaylist = async (userId) => {
         const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
@@ -36,28 +36,27 @@ export default function PlaylistGenerator() {
         const data = await axios.post(url, JSON.stringify(playlistData), config);
         return data.data.id;
     }
-    */
 
     //Add songs into playlist
-    const addTracksToPlaylist = async (playlistId, songs) => {
-        const url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/tracks';
+   //  const addTracksToPlaylist = async (playlistId, songs) => {
+   //      const url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/tracks';
 
-        const trackData = {
-            'uris': songs
-        }
+   //      const trackData = {
+   //          'uris': songs
+   //      }
 
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-                'Content-Type': 'application/json'
-            }
-        }
-        //const data = await axios.post(url, JSON.stringify(trackData), config);
-    }
+   //      const config = {
+   //          headers: {
+   //              Authorization: `Bearer ${localStorage.accessToken}`,
+   //              'Content-Type': 'application/json'
+   //          }
+   //      }
+   //      //const data = await axios.post(url, JSON.stringify(trackData), config);
+   //  }
 
     // Function to get track tempo
     const getAudioAnalysis = async (track_id) => {
-        const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
+      //   const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
         const { data } = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
