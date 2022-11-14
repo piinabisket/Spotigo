@@ -1,7 +1,7 @@
 //import { useEffect } from "react";
 //import { Router } from "react-router-dom";
-import axios from 'axios';
-import { liked_songs } from './home_auth';
+//import axios from 'axios';
+// import { liked_songs } from './home_auth';
 import "../assets/generator.css"
 import { useNavigate } from "react-router-dom";
 
@@ -18,8 +18,8 @@ export default function PlaylistGenerator() {
         });
         return data.id;
     }
-
-    // Creates an empty playlist
+    
+    //Creates an empty playlist
     const createPlaylist = async (userId) => {
         const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
         const title = document.getElementById('playlist_title').value;
@@ -53,12 +53,16 @@ export default function PlaylistGenerator() {
                 'Content-Type': 'application/json'
             }
         }
+<<<<<<< HEAD
         await axios.post(url, JSON.stringify(trackData), config);
+=======
+        //const data = await axios.post(url, JSON.stringify(trackData), config);
+>>>>>>> 1c8e12293b5528df11c21a7f487a5429069ca599
     }
 
-    // Function to get track tempo
+    //Function to get track tempo
     const getAudioAnalysis = async (track_id) => {
-        const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
+      //   const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
         const { data } = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
@@ -93,7 +97,7 @@ export default function PlaylistGenerator() {
         return tempoMatched;
 
     }
-
+    
     async function createPlaylistByTempo() {
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);
@@ -101,6 +105,7 @@ export default function PlaylistGenerator() {
         await addTracksToPlaylist(playlistId, songs);
         navigate(`/playlist/${playlistId}`);
     }
+   
 
     return (
         <html>
@@ -153,7 +158,7 @@ export default function PlaylistGenerator() {
                             <div class="optional opensans-normal-white-27px">[optional]</div>
                         </div>
                     </div>
-                    <button onClick={createPlaylistByTempo} className="create-button">Create</button>
+                    {/* <button onClick={createPlaylistByTempo} className="create-button">Create</button> */}
                 </div>
             </div>
         </html>
