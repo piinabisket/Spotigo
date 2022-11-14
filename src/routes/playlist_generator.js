@@ -53,11 +53,7 @@ export default function PlaylistGenerator() {
                 'Content-Type': 'application/json'
             }
         }
-<<<<<<< HEAD
         await axios.post(url, JSON.stringify(trackData), config);
-=======
-        //const data = await axios.post(url, JSON.stringify(trackData), config);
->>>>>>> 1c8e12293b5528df11c21a7f487a5429069ca599
     }
 
     //Function to get track tempo
