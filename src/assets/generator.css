@@ -28,7 +28,7 @@
     border: 1px none;
     display: flex;
     min-height: 100vh;
-    min-width: 100vh;
+    min-width: 100vw;
 }
 
 .hidden,
@@ -247,11 +247,12 @@
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px none;
     display: flex;
-    height: 275px;
-    margin-left: 256px;
-    margin-top: 101px;
+    margin-left: 125px;
+    margin-top: 115px;
+    margin-right: 150px;
     padding: 82px 114px;
-    width: 275px;
+    height: 170px;
+    width: 170px;
     z-index: 2;
 }
 
