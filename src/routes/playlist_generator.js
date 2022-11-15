@@ -1,24 +1,35 @@
 //import { useEffect } from "react";
 //import { Router } from "react-router-dom";
-//import axios from 'axios';
-// import { liked_songs } from './home_auth';
+import axios from 'axios';
 import "../assets/generator.css"
 import { useNavigate } from "react-router-dom";
 
 export default function PlaylistGenerator() {
     const navigate = useNavigate();
 
+    // Constant to get a users liked songs
+    const liked_songs = async () => {
+        const url = 'https://api.spotify.com/v1/me/tracks?limit=50';
+        const { data } = await axios.get(url, {
+            headers: {
+                Authorization: `Bearer ${localStorage.accessToken}`,
+            }
+        });
+        console.log(data);
+        return data;
+    }
+
     // Get username so we can use it in createPlaylist
     const getUserId = async () => {
         const url = 'https://api.spotify.com/v1/me';
         const { data } = await axios.get(url, {
-            headers : {
+            headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
             }
         });
         return data.id;
     }
-    
+
     //Creates an empty playlist
     const createPlaylist = async (userId) => {
         const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
@@ -58,7 +69,7 @@ export default function PlaylistGenerator() {
 
     //Function to get track tempo
     const getAudioAnalysis = async (track_id) => {
-      //   const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
+        const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
         const { data } = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
@@ -75,16 +86,16 @@ export default function PlaylistGenerator() {
         const userBpm = document.getElementById('userBpm').value;
         console.log(userBpm);
 
-        for(let i = 0; i < data.items.length; i++){
+        for (let i = 0; i < data.items.length; i++) {
             songs.push(data.items[i].track.id);
         }
-        for(let i = 0; i < songs.length; i++){
+        for (let i = 0; i < songs.length; i++) {
             let tempo = await getAudioAnalysis(songs[i]);
             let min = tempo - 5;
             let max = tempo + 5;
             console.log(tempo);
-            
-            if(userBpm >= min & userBpm <= max){
+
+            if (userBpm >= min & userBpm <= max) {
                 console.log("hello")
                 tempoMatched.push(data.items[i].track.uri);
             }
@@ -93,7 +104,7 @@ export default function PlaylistGenerator() {
         return tempoMatched;
 
     }
-    
+
     async function createPlaylistByTempo() {
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);
@@ -101,7 +112,7 @@ export default function PlaylistGenerator() {
         await addTracksToPlaylist(playlistId, songs);
         navigate(`/playlist/${playlistId}`);
     }
-   
+
 
     return (
         <html>
@@ -137,7 +148,7 @@ export default function PlaylistGenerator() {
                         </div>
                     </div>
                     <div class="description">
-                        <div class = "description-1 opensans-bold-white-45px">Description</div>
+                        <div class="description-1 opensans-bold-white-45px">Description</div>
                         <form>
                             <textarea id='description' name='description' class='rectangle-13-2'></textarea>
                         </form>
@@ -154,7 +165,7 @@ export default function PlaylistGenerator() {
                             <div class="optional opensans-normal-white-27px">[optional]</div>
                         </div>
                     </div>
-                    {/* <button onClick={createPlaylistByTempo} className="create-button">Create</button> */}
+                    {<button onClick={createPlaylistByTempo} className="create-button">Create</button>}
                 </div>
             </div>
         </html>
