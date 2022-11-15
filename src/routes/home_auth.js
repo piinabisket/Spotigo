@@ -70,7 +70,7 @@ export default function HomeAuth() {
                     </button>
                 </h1>
 
-                <div class="home-w-login">
+                <div class="home-w-login screen">
                     <div class="playlist-list">
                         <div class="playlist-tile">
                             <div class="overlap-group">
