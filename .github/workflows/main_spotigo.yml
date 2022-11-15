@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: '18.x'
+          node-version: '16.x'
 
       - name: npm install, build, and test
         run: |
@@ -54,6 +54,5 @@ jobs:
         with:
           app-name: 'Spotigo'
           slot-name: 'Production'
-          app-location: 'src/backend'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CF56D35838524E2093574F3C41D8B689 }}
           package: .
