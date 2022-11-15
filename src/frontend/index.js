@@ -4,10 +4,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import HomeAuth from './routes/home_auth.js';
-import Login from "./routes/log_in.js";
-import PlaylistGenerated from './routes/playlist_generated.js';
-import PlaylistGenerator from './routes/playlist_generator.js';
+import HomeAuth from 'home_auth.js';
+import Login from "log_in.js";
+import PlaylistGenerated from 'playlist_generated.js';
+import PlaylistGenerator from 'playlist_generator.js';
 
 const rootElement = document.getElementById("root");
 render(
