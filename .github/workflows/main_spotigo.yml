@@ -27,6 +27,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm ci
+          npm install mongoose
+          npm install cors
           npm run build --if-present
           npm run test --if-present
         working-directory: src/backend
