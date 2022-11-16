@@ -46,7 +46,6 @@ export default function HomeAuth() {
     });
 
     return (
-        <html>
             <div>
                 <h1 className="home-header">
                     <svg width="50" height="43" viewBox="0 -12 40 54" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +147,6 @@ export default function HomeAuth() {
                     </div>
                 </div>
             </div>
-        </html>
     );
 }
 
