@@ -8,7 +8,7 @@
     "dev": "nodemon backend.js",
     "start": "node backend.js"
   },
-  "author": "",
+  "author": "npx eslint .",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
