@@ -2,7 +2,7 @@ import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom"
 import axios from 'axios'
 import "./css/playlist_generated.css"
-import Table from "./table.js"
+import Table from './table'
 
 export default function PlaylistGenerated() {
     const [playlist, setPlaylist] = useState([]);
