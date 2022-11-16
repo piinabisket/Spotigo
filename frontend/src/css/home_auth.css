@@ -5,9 +5,8 @@
     background-color: black;
     display: flex;
     flex-direction: column;
-    margin-top: -8px;
-    margin-left: -8px;
     height: 1440px;
+    margin-left: 100;
     overflow: auto;
     min-width: 100vw;
     min-height: 100vh;
