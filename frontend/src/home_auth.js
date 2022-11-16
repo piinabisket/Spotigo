@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from 'axios'
 // import Iframe from 'react-iframe'
-import "../assets/style.css"
+import "./css/style.css"
 
 
 /* function to extract authorization token from URL */

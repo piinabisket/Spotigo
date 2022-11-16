@@ -1,5 +1,5 @@
 import React from 'react'
-import "../assets/Table.css"
+import "./css/table.css"
 
 function Table(props) {
   return (

@@ -1,4 +1,4 @@
-import "../assets/style.css"
+import "./css/style.css"
 
 /* Setup for Spotify API Auth */
 const client_id = '27240f6fd5374a14bd84f3598ed0725c';

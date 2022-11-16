@@ -1,7 +1,7 @@
 //import { useEffect } from "react";
 //import { Router } from "react-router-dom";
 import axios from 'axios';
-import "../assets/generator.css"
+import "./css/generator.css"
 import { useNavigate } from "react-router-dom";
 
 export default function PlaylistGenerator() {

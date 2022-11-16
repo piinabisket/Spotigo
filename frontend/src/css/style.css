@@ -9,7 +9,7 @@
 
 /* used for setting the background */
 .login-header {
-    background-image: url(./login_background.png);
+    background-image: url(../../assets/login_background.png);
     background-size: cover;
     position: fixed;
     background-position: center;
