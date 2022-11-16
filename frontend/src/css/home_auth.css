@@ -33,7 +33,7 @@
     font-size: 35px !important;
     font-weight: 700 !important;
     line-height: normal !important;
-    margin-left: 20px !important;
+    margin-left: 35px !important;
     margin-top: 35px !important;
     min-height: 68px !important;
     white-space: nowrap !important;
@@ -44,7 +44,7 @@
 }
 
 .name {
-    margin-left: -100px;
+    margin-left: 0px;
     white-space: nowrap !important;
     z-index: 1 !important;
     display: inline-block !important;
@@ -74,7 +74,7 @@
     display: flex;
     gap: 30px;
     height: 518px;
-    margin-top: 80px;
+    margin-top: 0px;
     overflow: hidden;
     overflow-x: scroll;
     flex-wrap: nowrap;
