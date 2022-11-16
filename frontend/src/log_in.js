@@ -3,7 +3,7 @@ import "./css/style.css"
 /* Setup for Spotify API Auth */
 const client_id = '27240f6fd5374a14bd84f3598ed0725c';
 const auth_endpoint = 'https://accounts.spotify.com/authorize';
-const redirect_url = 'https://www.spotigo.site/home';
+const redirect_url = window.location + "home";
 const scope = 'user-read-private user-read-email user-library-read playlist-modify-public playlist-modify-private';
 
 export default function App() {
