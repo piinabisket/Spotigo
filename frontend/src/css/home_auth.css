@@ -1,4 +1,3 @@
-
 .home-w-login {
     align-items: flex-start;
     background: linear-gradient(180deg, #313131 0%, #0A0A0A 100%);
@@ -29,6 +28,30 @@
     z-index: 7;
 }
 
+.title {
+    color: #ffffff !important;
+    font-size: 35px !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    margin-left: 20px !important;
+    margin-top: 35px !important;
+    min-height: 68px !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.name {
+    margin-left: -100px;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
 .welcome {
     color: white;
     font-family: "Open Sans";
@@ -51,16 +74,17 @@
     display: flex;
     gap: 30px;
     height: 518px;
-    margin-right: -60px;
     margin-top: 80px;
-    overflow-x: auto;
+    overflow: hidden;
+    overflow-x: scroll;
     flex-wrap: nowrap;
     padding: 21px 0;
+    width: 1377px;
     min-width: 92vw;
     z-index: 5;
 }
 
-.playlist-list-1{
+.playlist-list-1 {
     align-items: flex-start;
     align-self: flex-end;
     background-color: #ffffff08;
