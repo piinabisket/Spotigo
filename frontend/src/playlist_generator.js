@@ -8,9 +8,8 @@ export default function PlaylistGenerator() {
     const navigate = useNavigate();
 
     // Constant to get a users liked songs
-    const liked_songs = async () => {
-        const url = 'https://api.spotify.com/v1/me/tracks?limit=50';
-        const { data } = await axios.get(url, {
+    const getSongs = async (playlist_url) => {
+        const { data } = await axios.get(playlist_url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
             }
@@ -80,27 +79,30 @@ export default function PlaylistGenerator() {
 
     // Returns a list of song that matches input tempo
     async function getSongsWithTempo() {
-        let data = await liked_songs();
+        let url = "https://api.spotify.com/v1/me/tracks?offset=0&limit=50&locale=en-US,en;q=0.5"
+        let data = await getSongs(url);
         let songs = [];
         let tempoMatched = [];
         const userBpm = document.getElementById('userBpm').value;
-        console.log(userBpm);
+        console.log("first 50");
 
-        for (let i = 0; i < data.items.length; i++) {
-            songs.push(data.items[i].track.id);
-        }
-        for (let i = 0; i < songs.length; i++) {
-            let tempo = await getAudioAnalysis(songs[i]);
-            let min = tempo - 5;
-            let max = tempo + 5;
-            console.log(tempo);
-
-            if (userBpm >= min & userBpm <= max) {
-                console.log("hello")
-                tempoMatched.push(data.items[i].track.uri);
+        while (data.next) {
+            for (let i = 0; i < data.items.length; i++) {
+                songs.push(data.items[i].track.id);
             }
+            for (let i = 0; i < songs.length; i++) {
+                let tempo = await getAudioAnalysis(songs[i]);
+                let min = tempo - 5;
+                let max = tempo + 5;
+
+                if (userBpm >= min & userBpm <= max) {
+                    tempoMatched.push(data.items[i].track.uri);
+                }
+            }
+            songs = [];
+            data = await getSongs(data.next);
+            console.log("next 50");
         }
-        console.log(tempoMatched);
         return tempoMatched;
 
     }
