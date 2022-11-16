@@ -29,7 +29,7 @@ export default function App() {
                     <h4> the way you interact with music</h4>
                     <a
                         className="continue-wo-login-link"
-                        href="http://https://nice-rock-0ff1e6410.2.azurestaticapps.net:3000/home"
+                        href="http://www.spotigo.site/home"
                         target="_self"
                         rel="noopener noreferrer"
                     >
