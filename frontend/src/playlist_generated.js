@@ -23,6 +23,7 @@ export default function PlaylistGenerated() {
             for (let i = 0; i < data.tracks.items.length; i++) {
                 songs['listOfSongs'].push(
                     {
+                        picture: data.tracks.items[i].track.album.images[0].url,
                         name: data.tracks.items[i].track.name,
                         artist: data.tracks.items[i].track.artists[0].name,
                         album: data.tracks.items[i].track.album.name,

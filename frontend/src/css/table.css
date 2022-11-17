@@ -1,3 +1,48 @@
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 8px; }
-th     { background:#eee; }
+table {
+    border-collapse: collapse;
+    max-width: 70vw !important;
+    max-height: 50vh;
+}
+
+td {
+    padding: 0px 10px;
+    text-emphasis-color: gray;
+}
+
+th {
+    background: #eee;
+}
+
+.track-image {
+    margin-left: 30px;
+    height: 60px;
+    width: 60px;
+    padding: none none !important;
+}
+
+.song-name {
+    margin-top: 0px;
+    color: white;
+    font-size: 22px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 35vw;
+    max-height: 60px;
+    vertical-align: text-top;
+}
+
+.artist {
+    color: gray;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.album-and-length {
+    color: gray;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    max-width: 25vw;
+    max-height: 60px
+}

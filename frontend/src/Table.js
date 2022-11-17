@@ -3,9 +3,9 @@ import "./css/table.css"
 
 function Table(props) {
   return (
-    <table>
-      <TableHeader/>
-      <TableBody playlistData={props.playlistData}/>
+    <table className='fixed'>
+      <TableHeader />
+      <TableBody playlistData={props.playlistData} />
     </table>
   );
 }
@@ -14,8 +14,8 @@ function TableHeader() {
   return (
     <thead>
       <tr>
+        <th></th>
         <th>Title</th>
-        <th>Artist</th>
         <th>Album</th>
         <th>Length</th>
       </tr>
@@ -27,10 +27,10 @@ function TableBody(props) {
   const rows = props.playlistData.map((row, index) => {
     return (
       <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.artist}</td>
-        <td>{row.album}</td>
-        <td>{row.length}</td>
+        <td>{<img className="track-image" src={row.picture} alt=""></img>}</td>
+        <td>{<h1 className="song-name">{row.name}<br></br><h1 className="artist">{row.artist}</h1></h1>}</td>
+        <td>{<h1 className='album-and-length'>{row.album}</h1>}</td>
+        <td>{<h1 className='album-and-length'>{row.length}</h1>}</td>
       </tr>
     );
   });
