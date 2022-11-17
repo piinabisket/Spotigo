@@ -27,7 +27,7 @@ export default function PlaylistGenerated() {
                         name: data.tracks.items[i].track.name,
                         artist: data.tracks.items[i].track.artists[0].name,
                         album: data.tracks.items[i].track.album.name,
-                        length: millisToMinutesAndSeconds(data.tracks.items[i].track.duration_ms)
+                        length: millisToMinutesAndSeconds(data.tracks.items[i].track.duration_ms).toString()
                     }
                 );
             }

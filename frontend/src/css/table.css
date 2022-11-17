@@ -14,10 +14,9 @@ th {
 }
 
 .track-image {
-    margin-left: 30px;
+    margin-left: 10px;
     height: 60px;
     width: 60px;
-    padding: none none !important;
 }
 
 .song-name {
@@ -44,6 +43,16 @@ th {
     font-size: 18px;
     white-space: nowrap;
     overflow-x: hidden;
+    width: 25vw;
+    max-width: 25vw;
+    max-height: 60px
+}
+
+.length {
+    color: gray;
+    font-size: 18px;
+    overflow-x: hidden;
+    vertical-align: middle !important;
     max-width: 25vw;
     max-height: 60px
 }
