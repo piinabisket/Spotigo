@@ -20,9 +20,54 @@
     height: 27vh;
 }
 
+.title-label{
+    margin-top: -0px;
+    color: gray;
+    font-size: 18px;
+    padding: 0px 0px;
+    margin-left: 20.5vw;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+
+}
+
+.album-label{
+    color: gray;
+    font-size: 18px;
+    padding: none none;
+    margin-left: 33.7vw;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+}
+
+.length-circle{
+    color: gray;
+    font-size: 18px;
+    padding: 0 0;
+    margin-left: 23vw;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+}
+
+.length-clock-hand{
+    color: gray;
+    padding: 1 1;
+    margin-top: 100px;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+}
+
 .playlist-table {
     align-self: center;
-    margin-top: 30px;
+    margin-top: -20px;
     height: 400px;
     overflow: auto;
     z-index: 10;

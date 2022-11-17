@@ -21,7 +21,7 @@ th {
 }
 
 .song-name {
-    margin-top: 0px;
+    margin-top: 10px;
     color: white;
     font-size: 22px;
     overflow-x: scroll;
@@ -33,6 +33,7 @@ th {
 }
 
 .artist {
+    margin-top: 9px;
     color: gray;
     font-size: 18px;
     white-space: nowrap;

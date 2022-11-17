@@ -4,7 +4,6 @@ import "./css/table.css"
 function Table(props) {
   return (
     <table className='fixed'>
-      <TableHeader />
       <TableBody playlistData={props.playlistData} />
     </table>
   );

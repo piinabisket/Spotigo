@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import axios from 'axios'
 import "./css/playlist_generated.css"
@@ -6,7 +6,7 @@ import Table from './Table.js'
 
 export default function PlaylistGenerated() {
     const [playlist, setPlaylist] = useState([]);
-    const {id} = useParams();
+    const { id } = useParams();
     const [albumCover, setAlbumCover] = useState();
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function PlaylistGenerated() {
                     Authorization: `Bearer ${localStorage.accessToken}`,
                 }
             });
-    
+
             const songs = { listOfSongs: [], albumCover: data.images[0].url }
             console.log(data);
             for (let i = 0; i < data.tracks.items.length; i++) {
@@ -31,7 +31,7 @@ export default function PlaylistGenerated() {
                     }
                 );
             }
-    
+
             return songs;
         }
 
@@ -61,6 +61,18 @@ export default function PlaylistGenerated() {
                 </h1>
                 <div className="playlist-generated">
                     <img class="album-cover" src={albumCover} alt=""></img>
+                    <h1 className="title-label">
+                        Title
+                        <h1 className="album-label">Album</h1>
+
+                        <svg className="length-circle" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="9" stroke="#767676" stroke-width="2" />
+                            <svg className="length-clock-hand" x="2" y="4" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 0V6L4.5 9.5" stroke="#767676" stroke-width="2.4" />
+                            </svg>
+                        </svg>
+
+                    </h1>
                     <div className="playlist-table" >
                         {
                             playlist.length > 1 &&
