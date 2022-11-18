@@ -84,28 +84,37 @@ export default function PlaylistGenerator() {
         let data = await getSongs(url);
         let songs = [];
         let tempoMatched = [];
+        let artistGenres = [];
         const userBpm = document.getElementById('userBpm').value;
         console.log("first 50");
+        console.log(data);
 
-        while (data.next) {
+        while (data) {
             for (let i = 0; i < data.items.length; i++) {
                 songs.push(data.items[i].track.id);
+
             }
             for (let i = 0; i < songs.length; i++) {
+                // List of genres artist is associated with
+                let genres = data.items[i].track.artists.genres;
                 let tempo = await getAudioAnalysis(songs[i]);
                 let min = tempo - 5;
                 let max = tempo + 5;
-
                 if (userBpm >= min & userBpm <= max) {
+                    console.log('YES')
                     tempoMatched.push(data.items[i].track.uri);
                 }
             }
             songs = [];
-            data = await getSongs(data.next);
+            if(data.next){
+                data = await getSongs(data.next);
+            }
+            else{
+                data = null;
+            }
             console.log("next 50");
         }
         return tempoMatched;
-
     }
 
     async function createPlaylistByTempo() {
@@ -159,14 +168,12 @@ export default function PlaylistGenerator() {
                     <div class="genre-one">
                         <div class="genre opensans-bold-white-45px">Genre One</div>
                         <form>
-                            <input type="text" id='genreOne' name="genreOne" class="rectangle-13-3"></input>
+                            <input type="text" id='genreOne' name="genreOne" placeholder='[optional]' class="genreText"></input>
                         </form>
                     </div>
                     <div class="genre-two">
                         <div class="genre opensans-bold-white-45px">Genre Two</div>
-                        <div class="overlap-group1">
-                            <div class="optional opensans-normal-white-27px">[optional]</div>
-                        </div>
+                        <input type="text" id='genreTwo' name='genreTwo' placeholder='[optional]' class="genreText"></input>
                     </div>
                     {<button onClick={createPlaylistByTempo} className="create-button">Create</button>}
                 </div>
