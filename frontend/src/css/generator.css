@@ -163,6 +163,12 @@
     line-height: normal;
     width: 84px;
     cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.create-button:hover{
+    transition-duration: 0.2s;
+    color:whitesmoke
 }
 
 .flex-row {

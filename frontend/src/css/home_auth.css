@@ -43,6 +43,33 @@
     padding: none none;
 }
 
+.playlist-button {
+    align-items: center;
+    background-color: rgba(29, 185, 84, 1);
+    border: 1px none;
+    border-radius: 100px;
+    justify-content: center;
+    display: flex;
+    left: 1200px;
+    top: 70px;
+    height: 50px;
+    min-width: 250px;
+    padding: 5.2px 43.4px;
+    color: rgba(0, 0, 0, 1);
+    font-family: "Open Sans";
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    position: fixed;
+    transition-duration: 0.2s;
+}
+
+.playlist-button:hover{
+    transition-duration: 0.2s;
+    color:whitesmoke
+}
+
 .name {
     margin-left: 0px;
     white-space: nowrap !important;
