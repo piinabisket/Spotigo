@@ -4,10 +4,13 @@ import axios from 'axios'
 import "./css/playlist_generated.css"
 import Table from './Table.js'
 
+
+
 export default function PlaylistGenerated() {
     const [playlist, setPlaylist] = useState([]);
     const { id } = useParams();
     const [albumCover, setAlbumCover] = useState();
+    const [author_url, setAuthorUrl] = useState();
 
     useEffect(() => {
         async function parsePlaylist(id) {
@@ -18,7 +21,13 @@ export default function PlaylistGenerated() {
                 }
             });
 
-            const songs = { listOfSongs: [], albumCover: data.images[0].url }
+            var auth_desc = data.owner.display_name + ' | ' + data.description;
+            if (auth_desc.length >= 70)
+                auth_desc = auth_desc.substring(0, 67) + "..."
+            document.getElementById('playlist-owner-desc').innerHTML = auth_desc;
+            document.getElementById('playlist-name-title').innerHTML = data.name;
+
+            const songs = { listOfSongs: [], albumCover: data.images[0].url, authorUrl: data.external_urls.spotify }
             console.log(data);
             for (let i = 0; i < data.tracks.items.length; i++) {
                 songs['listOfSongs'].push(
@@ -39,6 +48,7 @@ export default function PlaylistGenerated() {
             if (result) {
                 setPlaylist(result['listOfSongs']);
                 setAlbumCover(result['albumCover'])
+                setAuthorUrl(result['authorUrl'])
             }
         });
     }, [id]);
@@ -79,14 +89,17 @@ export default function PlaylistGenerated() {
                             <Table playlistData={playlist} />
                         }
                     </div>
+                    <a href={author_url} className="playlist-name" id="playlist-name-title" target="_blank" rel="noreferrer"> </a>
+                    <p className="author-description" id="playlist-owner-desc"></p>
                 </div>
             </div>
         </html>
     )
 }
 
-// 55DM8J20s9eEZLXu3AW7o7
+// 0dJbxj8JQd9tblCtvE712L
 
 // 0aDFL3pRZxlRWL6zeZn8mV
 
 // 3Kl6W8vzXCa2Uhi5XKKgbG
+

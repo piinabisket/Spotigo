@@ -2,7 +2,6 @@
     Styling for playlist_generated.js
 */
 .playlist-generated {
-    align-items: flex-start;
     background: linear-gradient(180deg, #313131 0%, #0A0A0A 100%);
     background-color: black;
     display: flex;
@@ -17,10 +16,10 @@
     align-self: center;
     margin-top: 65px;
     padding: none none;
-    height: 27vh;
+    height: 24vh;
 }
 
-.title-label{
+.title-label {
     margin-top: -0px;
     color: gray;
     font-size: 18px;
@@ -33,7 +32,7 @@
 
 }
 
-.album-label{
+.album-label {
     color: gray;
     font-size: 18px;
     padding: none none;
@@ -44,7 +43,7 @@
     white-space: nowrap !important;
 }
 
-.length-circle{
+.length-circle {
     color: gray;
     font-size: 18px;
     padding: 0 0;
@@ -55,7 +54,7 @@
     white-space: nowrap !important;
 }
 
-.length-clock-hand{
+.length-clock-hand {
     color: gray;
     padding: 1 1;
     margin-top: 100px;
@@ -68,18 +67,27 @@
 .playlist-table {
     align-self: center;
     margin-top: -20px;
-    height: 400px;
+    height: 42vh;
     overflow: auto;
     z-index: 10;
     background-color: #d9d9d90a;
 }
 
-.playlist-table thead th{
-    position: sticky; top: 0; z-index: 1;
+.playlist-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
 
 .hidden,
 .hidden * {
@@ -101,6 +109,39 @@ th, td { padding: 8px 16px; }
     font-weight: 600;
     text-anchor: "middle";
     z-index: 7;
+}
+
+.playlist-name {
+    color: white;
+    line-height: normal;
+    position: relative !important;
+    text-align: center;
+    font-size: 32px;
+    display: inline-block;
+    position: relative;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 25px 20px;
+    margin-top: -15px;
+}
+
+.author-description {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    color: gray;
+    line-height: normal;
+    text-align: center;
+    font-size: 22px;
+    display: inline-block;
+    position: relative;
+    margin-top: -25px;
 }
 
 .search {
