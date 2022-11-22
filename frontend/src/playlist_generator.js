@@ -96,8 +96,6 @@ export default function PlaylistGenerator() {
         let songs = [];
         let tempoMatched = [];
         const userBpm = document.getElementById('userBpm').value;
-        const userGenre1 = document.getElementById('genreOne').value;
-        const userGenre2 = document.getElementById('genreTwo').value;
         console.log("first 50");
         console.log(data);
 
@@ -108,7 +106,6 @@ export default function PlaylistGenerator() {
             }
             for (let i = 0; i < songs.length; i++) {
                 let tempo = await getAudioAnalysis(songs[i]);
-                let genre = await getArtistGenre(data.items[i].track.artists[0].id);
                 let min = tempo - 5;
                 let max = tempo + 5;
                 if (userBpm >= min & userBpm <= max) {
