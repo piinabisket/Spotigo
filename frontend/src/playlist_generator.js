@@ -79,15 +79,15 @@ export default function PlaylistGenerator() {
     }
 
     // Returns artist genre
-    async function getArtistGenre(artistId) {
-        const url = "	https://api.spotify.com/v1/artists/" + artistId;
-        const { data } = await axios.get(url, {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-            }
-        });
-        return data.genres;
-    }
+    //async function getArtistGenre(artistId) {
+    //    const url = "	https://api.spotify.com/v1/artists/" + artistId;
+    //    const { data } = await axios.get(url, {
+    //        headers: {
+    //            Authorization: `Bearer ${localStorage.accessToken}`,
+    //        }
+    //    });
+    //    return data.genres;
+    //}
 
     // Returns a list of song that matches input tempo
     async function getSongsWithTempo() {
