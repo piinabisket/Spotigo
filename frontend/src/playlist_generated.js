@@ -11,19 +11,42 @@ export default function PlaylistGenerated() {
     const [author_url, setAuthorUrl] = useState();
 
     function likePlaylist() {
-        console.log("liked playlist");
+        var img = document.getElementById("likeButton");
+        if (img.className === "like-button"){
+            img.className = "liked-button";
+            img.src= "likedButton.png"
+        }
+        else{
+            img.className = "like-button";
+            img.src= "likeButton.png"
+        }
+    }
+
+    async function likePlaylistToSpotify() {
+        const { data } = await axios({
+            method: 'put',
+            url: 'https://api.spotify.com/v1/playlists/' + id + '/followers',
+            headers: { 'Authorization': 'Bearer ' + localStorage.accessToken },
+            data: {
+                "public": false
+            }
+        })
+        return data;
     }
 
     useEffect(() => {
         async function parsePlaylist(id) {
             const url = `https://api.spotify.com/v1/playlists/${id}`;
+            console.log(localStorage.accessToken);
             const { data } = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${localStorage.accessToken}`,
                 }
             });
 
-            var auth_desc = data.owner.display_name + ' | ' + data.description;
+            var auth_desc = data.owner.display_name;
+            if (data.description)
+                auth_desc += ' | ' + data.description;
             if (auth_desc.length >= 70)
                 auth_desc = auth_desc.substring(0, 67) + "..."
             document.getElementById('playlist-owner-desc').innerHTML = auth_desc;
@@ -93,9 +116,15 @@ export default function PlaylistGenerated() {
                     </div>
                     <a href={author_url} className="playlist-name" id="playlist-name-title" target="_blank" rel="noreferrer"> </a>
                     <p className="author-description" id="playlist-owner-desc"></p>
-                    <button className="like-button" onClick={likePlaylist}>
-                        <image src="likeButton.png" alt="no image"></image>
-                    </button>
+                    <div>
+                        <button id="likeButton" className="like-button" onClick={likePlaylist}>
+                            <image src="likeButton.png" alt="no image"></image>
+                        </button>
+                        <button className="share-button" onClick={likePlaylistToSpotify}>
+                            <image src="shareButton.png" alt="no image"></image>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </html>
@@ -105,6 +134,8 @@ export default function PlaylistGenerated() {
 // 0dJbxj8JQd9tblCtvE712L
 
 // 0aDFL3pRZxlRWL6zeZn8mV
+
+// 3Kl6W8vzXCa2Uhi5XKKgbG
 
 // 3Kl6W8vzXCa2Uhi5XKKgbG
 
