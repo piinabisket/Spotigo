@@ -3,6 +3,14 @@
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800");
 
+::placeholder {
+    font-family: 'Open Sans';
+    color: rgba(225, 225, 225, 0.298);
+    font-size: 27px;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* Styling */
 .opensans-bold-white-45px {
     color: rgba(255, 255, 255, 1);
@@ -120,12 +128,13 @@
     width: 602px;
 }
 
-.rectangle-13-3 {
+.genreText {
     background-color: rgba(255, 255, 255, 0.18);
     border: 1px none;
     box-shadow: inset 4px 4px 12px 12px #00000040;
     height: 39px;
     width: 600px;
+    display: flex;
 }
 
 .genre {
@@ -154,6 +163,12 @@
     line-height: normal;
     width: 84px;
     cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.create-button:hover{
+    transition-duration: 0.2s;
+    color:whitesmoke
 }
 
 .flex-row {
@@ -187,7 +202,7 @@
     box-shadow: inset 4px 4px 12px 12px #00000040;
     display: flex;
     height: 39px;
-    min-width: 410px;
+    min-width: 390px;
     padding: 0 12px;
 }
 
@@ -239,20 +254,19 @@
     display: flex;
     height: 39px;
     min-width: 600px;
-    padding: 0 11px;
 }
 
 .playlist-art {
-    align-items: flex-start;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px none;
     display: flex;
-    margin-left: 125px;
+    justify-content: center;
+    margin-left: 160px;
     margin-top: 115px;
-    margin-right: 150px;
-    padding: 82px 114px;
-    height: 170px;
-    width: 170px;
+    margin-right: 160px;
+    height: 350px;
+    width: 350px;
     z-index: 2;
 }
 
@@ -262,7 +276,6 @@
     font-size: 19px;
     font-weight: 700;
     letter-spacing: 0;
-    line-height: normal;
     margin-left: 1px;
     min-height: 109px;
 }
