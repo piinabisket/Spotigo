@@ -124,6 +124,7 @@ td {
     font-weight: 700;
     padding: 25px 20px;
     margin-top: -15px;
+    text-decoration: none;
 }
 
 .author-description {
@@ -143,6 +144,20 @@ td {
     position: relative;
     margin-top: -25px;
 }
+
+.like-button {
+    width: 70px;
+    height: 54px;
+    margin-top: -9px;
+    margin-left: 42vw;
+    background: url(../likeButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
 
 .search {
     margin-left: 635px;

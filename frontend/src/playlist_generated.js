@@ -4,13 +4,15 @@ import axios from 'axios'
 import "./css/playlist_generated.css"
 import Table from './Table.js'
 
-
-
 export default function PlaylistGenerated() {
     const [playlist, setPlaylist] = useState([]);
     const { id } = useParams();
     const [albumCover, setAlbumCover] = useState();
     const [author_url, setAuthorUrl] = useState();
+
+    function likePlaylist() {
+        console.log("liked playlist");
+    }
 
     useEffect(() => {
         async function parsePlaylist(id) {
@@ -91,6 +93,9 @@ export default function PlaylistGenerated() {
                     </div>
                     <a href={author_url} className="playlist-name" id="playlist-name-title" target="_blank" rel="noreferrer"> </a>
                     <p className="author-description" id="playlist-owner-desc"></p>
+                    <button className="like-button" onClick={likePlaylist}>
+                        <image src="likeButton.png" alt="no image"></image>
+                    </button>
                 </div>
             </div>
         </html>
