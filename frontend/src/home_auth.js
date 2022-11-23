@@ -68,10 +68,11 @@ export default function HomeAuth() {
                 </h1>
 
                 <div className="home-w-login">
-                    <h1 className="title" >Welcome, <p className="name" id="user_name"></p></h1>
-                    <Link to='/generator'>
-                        <button type='button' className="playlist-button">New Playlist</button>
-                    </Link>
+                    <h1 className="title" >Welcome, <p className="name" id="user_name"></p> 
+                        <Link to='/generator'>
+                            <button type='button' className="playlist-button">New Playlist</button>
+                        </Link>
+                    </h1>
                     <div class="playlist-list">
                         <div class="playlist-tile">
                             <div class="overlap-group">
