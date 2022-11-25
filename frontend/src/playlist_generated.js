@@ -10,28 +10,34 @@ export default function PlaylistGenerated() {
     const [albumCover, setAlbumCover] = useState();
     const [author_url, setAuthorUrl] = useState();
 
+    // This function likes the playlist into our database; not complete -> needs a backend call to add the playlist
     function likePlaylist() {
         var img = document.getElementById("likeButton");
-        if (img.className === "like-button"){
+        if (img.className === "like-button") {
             img.className = "liked-button";
-            img.src= "likedButton.png"
+            img.src = "likedButton.png"
         }
-        else{
+        else {
             img.className = "like-button";
-            img.src= "likeButton.png"
+            img.src = "likeButton.png"
         }
     }
 
+    // This function likes the playlist into the user's spotify account
     async function likePlaylistToSpotify() {
-        const { data } = await axios({
-            method: 'put',
-            url: 'https://api.spotify.com/v1/playlists/' + id + '/followers',
-            headers: { 'Authorization': 'Bearer ' + localStorage.accessToken },
-            data: {
-                "public": false
-            }
-        })
-        return data;
+        try {
+            await axios({
+                method: 'put',
+                url: 'https://api.spotify.com/v1/playlists/' + id + '/followers',
+                headers: { 'Authorization': 'Bearer ' + localStorage.accessToken },
+                data: {
+                    "public": false
+                }
+            })
+            alert("Saved playlist to your Spotify account");
+        } catch (error){
+            alert(error);
+        }
     }
 
     useEffect(() => {
@@ -130,6 +136,8 @@ export default function PlaylistGenerated() {
         </html>
     )
 }
+
+// Playlist id's for testing:
 
 // 0dJbxj8JQd9tblCtvE712L
 
