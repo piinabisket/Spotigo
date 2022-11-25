@@ -2,7 +2,6 @@
     Styling for playlist_generated.js
 */
 .playlist-generated {
-    align-items: flex-start;
     background: linear-gradient(180deg, #313131 0%, #0A0A0A 100%);
     background-color: black;
     display: flex;
@@ -17,10 +16,10 @@
     align-self: center;
     margin-top: 65px;
     padding: none none;
-    height: 27vh;
+    height: 24vh;
 }
 
-.title-label{
+.title-label {
     margin-top: -0px;
     color: gray;
     font-size: 18px;
@@ -33,7 +32,7 @@
 
 }
 
-.album-label{
+.album-label {
     color: gray;
     font-size: 18px;
     padding: none none;
@@ -44,7 +43,7 @@
     white-space: nowrap !important;
 }
 
-.length-circle{
+.length-circle {
     color: gray;
     font-size: 18px;
     padding: 0 0;
@@ -55,7 +54,7 @@
     white-space: nowrap !important;
 }
 
-.length-clock-hand{
+.length-clock-hand {
     color: gray;
     padding: 1 1;
     margin-top: 100px;
@@ -68,18 +67,27 @@
 .playlist-table {
     align-self: center;
     margin-top: -20px;
-    height: 400px;
+    height: 42vh;
     overflow: auto;
     z-index: 10;
     background-color: #d9d9d90a;
 }
 
-.playlist-table thead th{
-    position: sticky; top: 0; z-index: 1;
+.playlist-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
 
 .hidden,
 .hidden * {
@@ -102,6 +110,141 @@ th, td { padding: 8px 16px; }
     text-anchor: "middle";
     z-index: 7;
 }
+
+.playlist-name {
+    color: white;
+    line-height: normal;
+    position: relative !important;
+    text-align: center;
+    font-size: 32px;
+    display: inline-block;
+    position: relative;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 25px 20px;
+    margin-top: -15px;
+    text-decoration: none;
+}
+
+.author-description {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    color: gray;
+    line-height: normal;
+    text-align: center;
+    font-size: 22px;
+    display: inline-block;
+    position: relative;
+    margin-top: -25px;
+}
+
+.like-button {
+    width: 70px;
+    height: 54px;
+    margin-top: -9px;
+    margin-left: 44vw;
+    background: url(../likeButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.like-button image {
+    width: 70px;
+    height: 45px;
+    margin-top: -9px;
+    margin-left: 44vw;
+    background: url(../likeButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.liked-button {
+    width: 70px;
+    height: 54px;
+    margin-top: -9px;
+    margin-left: 44vw;
+    background: url(../likedButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.liked-button image {
+    width: 70px;
+    height: 45px;
+    margin-top: -9px;
+    margin-left: 44vw;
+    background: url(../likedButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.share-button {
+    width: 70px;
+    height: 95px;
+    margin-top: -9px;
+    margin-left: 2.8vw;
+    background: url(../shareButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    size: 60%;
+}
+
+.share-button image {
+    width: 70px;
+    height: 4px;
+    margin-top: -9px;
+    margin-left: 3vw;
+    background: url(../shareButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    size: 60%;
+}
+
 
 .search {
     margin-left: 635px;

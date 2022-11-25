@@ -8,17 +8,57 @@ export default function PlaylistGenerated() {
     const [playlist, setPlaylist] = useState([]);
     const { id } = useParams();
     const [albumCover, setAlbumCover] = useState();
+    const [author_url, setAuthorUrl] = useState();
+
+    // This function likes the playlist into our database; not complete -> needs a backend call to add the playlist
+    function likePlaylist() {
+        var img = document.getElementById("likeButton");
+        if (img.className === "like-button") {
+            img.className = "liked-button";
+            img.src = "likedButton.png"
+        }
+        else {
+            img.className = "like-button";
+            img.src = "likeButton.png"
+        }
+    }
+
+    // This function likes the playlist into the user's spotify account
+    async function likePlaylistToSpotify() {
+        try {
+            await axios({
+                method: 'put',
+                url: 'https://api.spotify.com/v1/playlists/' + id + '/followers',
+                headers: { 'Authorization': 'Bearer ' + localStorage.accessToken },
+                data: {
+                    "public": false
+                }
+            })
+            alert("Saved playlist to your Spotify account");
+        } catch (error){
+            alert(error);
+        }
+    }
 
     useEffect(() => {
         async function parsePlaylist(id) {
             const url = `https://api.spotify.com/v1/playlists/${id}`;
+            console.log(localStorage.accessToken);
             const { data } = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${localStorage.accessToken}`,
                 }
             });
 
-            const songs = { listOfSongs: [], albumCover: data.images[0].url }
+            var auth_desc = data.owner.display_name;
+            if (data.description)
+                auth_desc += ' | ' + data.description;
+            if (auth_desc.length >= 70)
+                auth_desc = auth_desc.substring(0, 67) + "..."
+            document.getElementById('playlist-owner-desc').innerHTML = auth_desc;
+            document.getElementById('playlist-name-title').innerHTML = data.name;
+
+            const songs = { listOfSongs: [], albumCover: data.images[0].url, authorUrl: data.external_urls.spotify }
             console.log(data);
             for (let i = 0; i < data.tracks.items.length; i++) {
                 songs['listOfSongs'].push(
@@ -39,6 +79,7 @@ export default function PlaylistGenerated() {
             if (result) {
                 setPlaylist(result['listOfSongs']);
                 setAlbumCover(result['albumCover'])
+                setAuthorUrl(result['authorUrl'])
             }
         });
     }, [id]);
@@ -79,14 +120,30 @@ export default function PlaylistGenerated() {
                             <Table playlistData={playlist} />
                         }
                     </div>
+                    <a href={author_url} className="playlist-name" id="playlist-name-title" target="_blank" rel="noreferrer"> </a>
+                    <p className="author-description" id="playlist-owner-desc"></p>
+                    <div>
+                        <button id="likeButton" className="like-button" onClick={likePlaylist}>
+                            <image src="likeButton.png" alt="no image"></image>
+                        </button>
+                        <button className="share-button" onClick={likePlaylistToSpotify}>
+                            <image src="shareButton.png" alt="no image"></image>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </html>
     )
 }
 
-// 55DM8J20s9eEZLXu3AW7o7
+// Playlist id's for testing:
+
+// 0dJbxj8JQd9tblCtvE712L
 
 // 0aDFL3pRZxlRWL6zeZn8mV
 
 // 3Kl6W8vzXCa2Uhi5XKKgbG
+
+// 3Kl6W8vzXCa2Uhi5XKKgbG
+
