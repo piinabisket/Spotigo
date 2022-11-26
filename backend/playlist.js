@@ -27,6 +27,11 @@ const PlaylistSchema = new mongoose.Schema({
     required: false,
     trim: true,
   },
+  album_cover:{
+    type: String,
+    required: true,
+    trim: true
+  },
   date: {
      type: Date,
      default: Date.now,
