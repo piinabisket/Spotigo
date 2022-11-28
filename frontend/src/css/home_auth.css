@@ -34,7 +34,7 @@
     font-weight: 700 !important;
     line-height: normal !important;
     margin-left: 35px !important;
-    margin-top: 35px !important;
+    margin-top: 8vh !important;
     min-height: 68px !important;
     white-space: nowrap !important;
     z-index: 1 !important;
@@ -50,7 +50,7 @@
     border-radius: 100px;
     justify-content: center;
     display: inline-block;
-    margin-left:55vw;
+    margin-left:68vw;
     height: 50px;
     min-width: 250px;
     padding: 5.2px 43.4px;
