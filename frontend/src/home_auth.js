@@ -54,6 +54,7 @@ export default function HomeAuth() {
         return paramsSplit;
     }
 
+    /*
     const get_user_name = async () => {
         const url = "https://api.spotify.com/v1/me";
         const { data } = await axios.get(url, {
@@ -63,6 +64,7 @@ export default function HomeAuth() {
         });
         document.getElementById('user_name').innerHTML = data.display_name;
     }
+    */
 
     useEffect(() => {
         if (window.location.hash.includes("access_token")) {
@@ -75,7 +77,6 @@ export default function HomeAuth() {
             localStorage.setItem("accessToken", access_token);
             localStorage.setItem("tokenType", token_type);
             localStorage.setItem("expiresIn", expires_in);
-            get_user_name();
         }
     }, []);
 
@@ -90,7 +91,7 @@ export default function HomeAuth() {
             </h1>
 
             <div className="home-w-login">
-                <h1 className="title" >Welcome, <p className="name" id="user_name"></p>
+                <h1 className="title" >Welcome
                     <Link to='/generator'>
                         <button type='button' className="playlist-button">New Playlist</button>
                     </Link>
