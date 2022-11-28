@@ -96,6 +96,8 @@ export default function HomeAuth() {
                         <button type='button' className="playlist-button">New Playlist</button>
                     </Link>
                 </h1>
+                <div className="line-under-welcome"></div>
+                <h1 className="popular-playlists-title">Popular Playlists</h1>
 
                 <div className="playlist-list">
                     {popular_playlists.map((row, index) => {
@@ -130,7 +132,7 @@ export default function HomeAuth() {
                         }
                     })}
                 </div>
-
+                <h1 className="liked-and-generated">Liked and Generated Playlists</h1>
                 <div class="playlist-list-1">
                     <div class="playlist-tile">
                         <div class="overlap-group">
