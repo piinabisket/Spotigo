@@ -115,9 +115,14 @@ export default function HomeAuth() {
                         }
                         else {
                             return (
-                                <div key={index} className="playlist-tile">
+                                <div key={index} className="playlist-tile-1">
                                     <div className="overlap-group">
-                                        <img className="album-cover-home" src={row.album_cover} alt={index}></img>
+                                        <Link to={'/playlist/' + row.sid}>
+                                            <img className="album-cover-home" src={row.album_cover} alt={index}></img>
+                                        </Link>
+                                        <h1 className="playlist-title-home">{row.name}</h1>
+                                        <h1 className="playlist-BPM-home">{row.bpm} BPM</h1>
+                                        <h1 className="playlist-description-home">{row.description}</h1>
                                     </div>
                                 </div>
                             );
