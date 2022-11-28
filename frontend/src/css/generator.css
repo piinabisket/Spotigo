@@ -11,6 +11,22 @@
     font-style: normal;
 }
 
+input[type=text]{
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+textarea{
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 700;
+    font-style: normal;
+}
+
 /* Styling */
 .opensans-bold-white-45px {
     color: rgba(255, 255, 255, 1);
