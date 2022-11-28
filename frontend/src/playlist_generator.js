@@ -78,17 +78,6 @@ export default function PlaylistGenerator() {
         return data.track.tempo;
     }
 
-    // Returns artist genre
-    async function getArtistGenre(artistId) {
-        const url = "	https://api.spotify.com/v1/artists/" + artistId;
-        const { data } = await axios.get(url, {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-            }
-        });
-        return data.genres;
-    }
-
     // Returns a list of song that matches input tempo
     async function getSongsWithTempo() {
         let url = "https://api.spotify.com/v1/me/tracks?offset=0&limit=50&locale=en-US,en;q=0.5"
@@ -96,8 +85,6 @@ export default function PlaylistGenerator() {
         let songs = [];
         let tempoMatched = [];
         const userBpm = document.getElementById('userBpm').value;
-        const userGenre1 = document.getElementById('genreOne').value;
-        const userGenre2 = document.getElementById('genreTwo').value;
         console.log("first 50");
         console.log(data);
 
@@ -107,31 +94,15 @@ export default function PlaylistGenerator() {
             }
             for (let i = 0; i < songs.length; i++) {
                 let tempo = await getAudioAnalysis(songs[i]);
-                let genre = await getArtistGenre(data.items[i].track.artists[0].id);
-                console.log(genre);
-                let len = genre.length;
-                let flag = 0;
                 let min = tempo - 5;
                 let max = tempo + 5;
-                for(let j = 0; j < len; j++){
-                    if(genre[j].toLowerCase() === userGenre1.toLowerCase() || genre[j].toLowerCase() === userGenre2.toLowerCase()){
-                        flag = 1;
-                    }
+    
+                if (userBpm >= min & userBpm <= max) {
+                    console.log('YES')
+                    tempoMatched.push(data.items[i].track.uri);
                 }
-                if(userGenre1 || userGenre2){
-                    if (userBpm >= min & userBpm <= max & flag === 1) {
-                        console.log('YES')
-                        tempoMatched.push(data.items[i].track.uri);
-                    }
-                }
-                else{
-                    if (userBpm >= min & userBpm <= max) {
-                        console.log('YES')
-                        tempoMatched.push(data.items[i].track.uri);
-                    }
-                }
-                
             }
+            
             songs = [];
             if(data.next){
                 data = await getSongs(data.next);
@@ -141,6 +112,7 @@ export default function PlaylistGenerator() {
             }
             console.log("next 50");
         }
+
         return tempoMatched;
     }
 
