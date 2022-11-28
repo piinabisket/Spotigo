@@ -151,12 +151,6 @@ export default function PlaylistGenerator() {
                                 <input type="text" id="userBpm" name="userBpm" class="rectangle-13-1"></input>
                             </form>
                         </div>
-                        <div class="length">
-                            <div class="length-1 opensans-bold-white-45px">Length</div>
-                            <div class="overlap-group2">
-                                <div class="optional opensans-normal-white-27px">[optional]</div>
-                            </div>
-                        </div>
                     </div>
                     <div class="description">
                         <div class="description-1 opensans-bold-white-45px">Description</div>
