@@ -50,7 +50,7 @@
     border-radius: 100px;
     justify-content: center;
     display: inline-block;
-    left: 925px;
+    margin-left:65vw;
     height: 50px;
     min-width: 250px;
     padding: 5.2px 43.4px;
@@ -110,6 +110,34 @@
     z-index: 5;
 }
 
+.playlist-title-home{
+    color: white;
+    padding: 0px 0px;
+    margin-top: 1vh;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+.playlist-BPM-home{
+    color: lightgray;
+    padding: 0px 0px;
+    margin-top: -2.5vh;
+    font-size: 3vh;
+    font-style: normal;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+.playlist-description-home{
+    color: lightgray;
+    padding: 0px 0px;
+    margin-top: 0vh;
+    font-size: 2.5vh;
+    font-style: normal;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
 .playlist-list-1 {
     align-items: flex-start;
     align-self: flex-end;
@@ -164,6 +192,13 @@
     height: 275px;
     margin-top: 50px;
     width: 275px;
+}
+
+.album-cover-home {
+    border: 1px none;
+    min-height: 34vh;
+    margin-top: 50px !important;
+    width: 19.2vw;
 }
 
 .playlist_description {

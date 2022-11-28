@@ -16,6 +16,11 @@ const PlaylistSchema = new mongoose.Schema({
      required: true,
      trim: true,
   },
+  description: {
+    type: String,
+    default: "description goes here",
+    trim: true
+  },
   genre: {
     type: String,
     required: true,
