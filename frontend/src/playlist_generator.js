@@ -102,7 +102,7 @@ export default function PlaylistGenerator() {
                     tempoMatched.push(data.items[i].track.uri);
                 }
             }
-            
+
             songs = [];
             if(data.next){
                 data = await getSongs(data.next);
@@ -163,16 +163,6 @@ export default function PlaylistGenerator() {
                         <form>
                             <textarea id='description' name='description' class='rectangle-13-2'></textarea>
                         </form>
-                    </div>
-                    <div class="genre-one">
-                        <div class="genre opensans-bold-white-45px">Genre One</div>
-                        <form>
-                            <input type="text" id='genreOne' name="genreOne" placeholder='[optional]' class="genreText"></input>
-                        </form>
-                    </div>
-                    <div class="genre-two">
-                        <div class="genre opensans-bold-white-45px">Genre Two</div>
-                        <input type="text" id='genreTwo' name='genreTwo' placeholder='[optional]' class="genreText"></input>
                     </div>
                     <button onClick={createPlaylistByTempo} className="create-button">Create</button>
                 </div>
