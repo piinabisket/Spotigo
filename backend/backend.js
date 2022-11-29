@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const playlistUtil = require('./playlist_utils');
+const userUtil = require('./user_utils');
 
 const app = express();
 const port = 4000;
@@ -28,6 +29,27 @@ app.get('/home', async (req, res) => {
       console.log(error);
       res.status(500).send('Server Error')
    }
+});
+
+app.get('/users', async (req, res) => {
+   const email = req.query['email'];
+   try {
+      const result = await userUtil.getUsers(email);
+      res.send({users_list: result});
+   }
+   catch(error){
+      console.log(error);
+      res.status(500).send('Server Error')
+   }
+});
+
+app.post('/users', async (req, res) => {
+   const user = req.body;
+   const savedUser = await userUtil.postUser(user);
+   if (savedUser)
+       res.status(201).send(savedUser);
+   else
+       res.status(500).end();
 });
 
 app.delete('/generated/:id', async (req, res) => {
