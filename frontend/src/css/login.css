@@ -9,8 +9,9 @@
 .login-header {
     background-image: url(../../assets/login_background.png);
     background-size: cover;
-    position: fixed;
+    margin-bottom: 1%;
     background-position: center;
+    position: top;
     min-height: 100vh;
     min-width: 100vw;
     background-Size: cover;
@@ -25,25 +26,17 @@
     color: black;
     background-color: #1DB954;
     text-align: left;
-    margin-top: 0px;
-    padding: 0px 8px;
+    position: top;
+    margin-bottom: 1%;
+    padding: 0px 8px 8px;
     font-family: sans-serif;
     font-weight: 600;
-    text-anchor: "middle";
+    vertical-align: center;
 }
 
 /* Used for setting the large text above the button; first line */
 .login-header>h2 {
     color: black;
-    margin-top: 55px;
-    font-size: xxx-large;
-    font-family: sans-serif;
-}
-
-/* Used for setting the large text above the button; second line */
-.login-header>h3 {
-    color: black;
-    margin-top: -35px;
     font-size: xxx-large;
     font-family: sans-serif;
 }
@@ -51,7 +44,7 @@
 /* Used for setting the small text above button */
 .login-header>h4 {
     color: black;
-    margin-top: -10px;
+    margin-top: .5%;
     font-size: large;
     font-weight: lighter;
     font-family: sans-serif;
@@ -61,18 +54,21 @@
 .login-button {
     background-color: #1DB954;
     font-size: 24px;
-    padding: 10px 30px;
-    position: fixed;
     color: black;
-    font-weight: 500;
-    padding: 10px 45px;
+    font-weight: 50px;
+    padding: 5px 35px;
     border-radius: 32px;
-    outline: 0;
+    border: 5px solid #1DB954;
     text-transform: uppercase;
-    margin: 330px -163px;
+    align-self: center;
+    margin-top: 1%;
     cursor: pointer;
     box-shadow: 0px 2px 2px lightgray;
-    transition: ease background-color 250ms;
+    transition-duration: .3s;
+}
+
+.login-button:hover {
+   background-color: transparent;
 }
 
 /* Used for customizing the `continue without login` link */

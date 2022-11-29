@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import "./css/index.css"
 import HomeAuth from './home_auth.js';
-import Login from "./log_in.js";
+import Login from "./login.js";
 import PlaylistGenerated from './playlist_generated.js';
 import PlaylistGenerator from './playlist_generator.js';
 
