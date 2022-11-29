@@ -116,10 +116,26 @@ export default function PlaylistGenerator() {
         return tempoMatched;
     }
 
+    async function addPlaylistImage(playlistId) {
+        let url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/images';
+        const image = document.getElementById('albumCov').files[0];
+        console.log(image);
+
+        const { data } = await axios.put(url, {
+            headers: {
+                Authorization: `Bearer ${localStorage.accessToken}`,
+                'Content-Type': 'image/jpeg'
+            },
+            body: image
+        })
+        return data;
+    }
+
     async function createPlaylistByTempo() {
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);
         let songs = await getSongsWithTempo();
+        //await addPlaylistImage(playlistId);
         await addTracksToPlaylist(playlistId, songs);
         navigate(`/playlist/${playlistId}`);
     }
@@ -135,7 +151,10 @@ export default function PlaylistGenerator() {
                     Spotigo
                 </h1>
                 <div class="playlist-art">
-                    <div class="text-1">+</div>
+                    <div class='image-upload'>
+                        <input type='file' accept='image/*' name='albumCov' id='albumCov'></input>
+                        <label for='albumCov' className='album-cover'></label>
+                    </div>
                 </div>
                 <div class="flex-col">
                     <div class="title-1">

@@ -272,14 +272,45 @@ textarea{
     min-width: 600px;
 }
 
+.image-upload>input {
+    display:none;
+}
+
+.album-cover {
+    width: 280px;
+    height: 280px;
+    background: url(../defaultphoto.png);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.album-cover:hover{
+    width: 280px;
+    height: 280px;
+    background: url(../choosephoto.png);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
 .playlist-art {
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
     border: 1px none;
     display: flex;
     justify-content: center;
-    margin-left: 160px;
-    margin-top: 115px;
+    margin-left: 150px;
+    margin-top: 50px;
     margin-right: 160px;
     height: 350px;
     width: 350px;
