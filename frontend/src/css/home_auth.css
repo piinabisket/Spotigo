@@ -69,15 +69,6 @@
     color:whitesmoke
 }
 
-.name {
-    margin-left: 0px;
-    white-space: nowrap !important;
-    z-index: 1 !important;
-    display: inline-block !important;
-    clear: none !important;
-    padding: none none;
-}
-
 .welcome {
     color: white;
     font-family: "Open Sans";
@@ -85,10 +76,33 @@
     font-weight: 700;
     letter-spacing: 0;
     line-height: normal;
-    margin-left: 50px;
+    margin-left: 3vw;
     margin-top: 66px;
     min-height: 68px;
     z-index: 1;
+}
+
+.line-under-welcome{
+    background-color: gray;
+    margin-left: 2.8vw;
+    margin-top: -4vh;
+    height: 0.2vh;
+    width: 20vw;
+}
+
+.popular-playlists-title {
+    color: #ffffff !important;
+    font-size: 35px !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    margin-left: 6vw !important;
+    margin-top: 2vh;
+    min-height: 68px !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
 }
 
 .playlist-list {
@@ -100,7 +114,7 @@
     display: flex;
     gap: 30px;
     height: 59vh;
-    margin-top: 0px;
+    margin-top: -3vh;
     overflow: hidden;
     overflow-x: scroll;
     flex-wrap: nowrap;
@@ -138,6 +152,22 @@
     font-weight: 600;
 }
 
+.liked-and-generated {
+    color: #ffffff !important;
+    font-size: 35px !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    margin-left: 6vw !important;
+    margin-top: 2vh;
+    min-height: 68px !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+
 .playlist-list-1 {
     align-items: flex-start;
     align-self: flex-end;
@@ -147,7 +177,7 @@
     display: flex;
     gap: 30px;
     height: 59vh;
-    margin-top: 17px;
+    margin-top: -3vh;
     overflow: hidden;
     overflow-x: scroll;
     padding: 21px 0;
