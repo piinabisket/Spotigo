@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const UserSchema = require("./user.js");
 const PlaylistSchema = require("./playlist");
 
 let dbConnection;
