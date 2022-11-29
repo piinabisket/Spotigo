@@ -116,20 +116,20 @@ export default function PlaylistGenerator() {
         return tempoMatched;
     }
 
-    async function addPlaylistImage(playlistId) {
-        let url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/images';
-        const image = document.getElementById('albumCov').files[0];
-        console.log(image);
+    // async function addPlaylistImage(playlistId) {
+    //     let url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/images';
+    //     const image = document.getElementById('albumCov').files[0];
+    //     console.log(image);
 
-        const { data } = await axios.put(url, {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-                'Content-Type': 'image/jpeg'
-            },
-            body: image
-        })
-        return data;
-    }
+    //     const { data } = await axios.put(url, {
+    //         headers: {
+    //             Authorization: `Bearer ${localStorage.accessToken}`,
+    //             'Content-Type': 'image/jpeg'
+    //         },
+    //         body: image
+    //     })
+    //     return data;
+    // }
 
     async function createPlaylistByTempo() {
         const userId = await getUserId();
