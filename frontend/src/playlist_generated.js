@@ -126,7 +126,7 @@ export default function PlaylistGenerated() {
                         <button id="likeButton" className="like-button" onClick={likePlaylist}>
                             <image src="likeButton.png" alt="no image"></image>
                         </button>
-                        <button className="share-button" onClick={likePlaylistToSpotify}>
+                        <button id="shareButton" className="share-button" onClick={likePlaylistToSpotify}>
                             <image src="shareButton.png" alt="no image"></image>
                         </button>
                     </div>
@@ -136,6 +136,7 @@ export default function PlaylistGenerated() {
         </html>
     )
 }
+
 
 // Playlist id's for testing:
 

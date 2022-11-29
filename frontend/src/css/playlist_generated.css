@@ -16,7 +16,8 @@
     align-self: center;
     margin-top: 65px;
     padding: none none;
-    height: 24vh;
+    max-height: 28vh;
+    max-width: 28vh;
 }
 
 .title-label {
@@ -148,29 +149,12 @@ td {
 .like-button {
     width: 70px;
     height: 54px;
-    margin-top: -9px;
-    margin-left: 44vw;
+    margin-top: -90px;
+    margin-left: 45vw;
     background: url(../likeButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap !important;
-    z-index: 1 !important;
-    display: inline-block !important;
-    clear: none !important;
-    padding: none none;
-}
-
-.like-button image {
-    width: 70px;
-    height: 45px;
-    margin-top: -9px;
-    margin-left: 44vw;
-    background: url(../likeButton.png);
-    background-color: Transparent;
-    background-repeat: no-repeat;
+    background-size: 65%;
     border: none;
     cursor: pointer;
     overflow: hidden;
@@ -184,29 +168,12 @@ td {
 .liked-button {
     width: 70px;
     height: 54px;
-    margin-top: -9px;
-    margin-left: 44vw;
+    margin-top: -90px;
+    margin-left: 45vw;
     background: url(../likedButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap !important;
-    z-index: 1 !important;
-    display: inline-block !important;
-    clear: none !important;
-    padding: none none;
-}
-
-.liked-button image {
-    width: 70px;
-    height: 45px;
-    margin-top: -9px;
-    margin-left: 44vw;
-    background: url(../likedButton.png);
-    background-color: Transparent;
-    background-repeat: no-repeat;
+    background-size: 65%;
     border: none;
     cursor: pointer;
     overflow: hidden;
@@ -219,32 +186,22 @@ td {
 
 .share-button {
     width: 70px;
-    height: 95px;
-    margin-top: -9px;
-    margin-left: 2.8vw;
+    height: 54px;
+    margin-top: -90px;
+    margin-left: 1.5vw;
     background: url(../shareButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
+    background-size: 60%;
     border: none;
     cursor: pointer;
     overflow: hidden;
-    size: 60%;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
 }
-
-.share-button image {
-    width: 70px;
-    height: 4px;
-    margin-top: -9px;
-    margin-left: 3vw;
-    background: url(../shareButton.png);
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    size: 60%;
-}
-
 
 .search {
     margin-left: 635px;
