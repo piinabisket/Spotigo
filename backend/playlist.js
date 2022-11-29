@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose; 
 
 const PlaylistSchema = new mongoose.Schema({
   name: {
@@ -46,25 +45,4 @@ const PlaylistSchema = new mongoose.Schema({
   }
 }, {collection : 'playlist_list'});
 
-
-const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  liked_playlists: [{ type: Schema.Types.ObjectId, ref: 'Playlist' }],
-  generated_playlists: [{ type: Schema.Types.ObjectId, ref: 'Playlist' }]
-
- 
-}, {collection : 'users'});
-
-const Playlist = mongoose.model('Playlist', PlaylistSchema);
-
 module.exports = PlaylistSchema;
-module.exports = UserSchema;
