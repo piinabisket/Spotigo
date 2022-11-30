@@ -10,10 +10,29 @@ export default function PlaylistGenerated() {
     const [albumCover, setAlbumCover] = useState();
     const [author_url, setAuthorUrl] = useState();
 
+    async function isLiked() {
+        let response;
+        try {
+            response = await axios({
+                method: 'get',
+                url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
+            })
+        } catch (error) {
+            alert("Unable to access database");
+        }
+
+        if (response.length < 1) {
+            alert("Internal error, current user does not exist. Please log in");
+            return false;
+        }
+
+        return (response.data.users_list[0].liked_songs.includes(id));
+    }
+
     // This function likes the playlist into our database; not complete -> needs a backend call to add the playlist
     function likePlaylist() {
         var img = document.getElementById("likeButton");
-        if (img.className === "like-button") {
+        if (isLiked(id)) {
             img.className = "liked-button";
             img.src = "likedButton.png"
         }
@@ -35,7 +54,7 @@ export default function PlaylistGenerated() {
                 }
             })
             alert("Saved playlist to your Spotify account");
-        } catch (error){
+        } catch (error) {
             alert(error);
         }
     }
@@ -49,6 +68,21 @@ export default function PlaylistGenerated() {
                     Authorization: `Bearer ${localStorage.accessToken}`,
                 }
             });
+
+            const response = await axios({
+                method: 'get',
+                url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
+            })
+
+            var img = document.getElementById("likeButton");
+            if (response.data.users_list[0].liked_songs.includes(id)) {
+                img.className = "liked-button";
+                img.src = "likedButton.png"
+            }
+            else {
+                img.className = "like-button";
+                img.src = "likeButton.png"
+            }
 
             // set playlist author and playlist title attributes for HTML
             var auth_desc = data.owner.display_name;
@@ -74,6 +108,7 @@ export default function PlaylistGenerated() {
                 );
             }
 
+
             return songs;
         }
 
@@ -85,6 +120,27 @@ export default function PlaylistGenerated() {
                 setAuthorUrl(result['authorUrl'])
             }
         });
+    }, [id]);
+
+    useEffect(() => {
+        async function initialize_like_button(id) {
+            var img = document.getElementById("likeButton");
+
+            const response = await axios({
+                method: 'get',
+                url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
+            });
+            if (response.data.users_list[0].liked_songs.includes(id)){
+                img.className = "liked-button";
+                img.src = "likedButton.png"
+            }
+            else{
+                img.className = "like-button";
+                img.src = "likeButton.png"
+            }
+        }
+
+        initialize_like_button();
     }, [id]);
 
 
