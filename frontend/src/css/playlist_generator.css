@@ -86,9 +86,9 @@ textarea{
     background-color:  rgba(255, 255, 255, 0.18);
     border: 1px none;
     box-shadow: inset 4px 4px 12px 12px #00000040;
-    height: 144px;
+    height: 100px;
     top: 60px;
-    width: 600px;
+    width: 400px;
     resize: none;
 }
 
@@ -96,6 +96,7 @@ textarea{
 .description-1 {
     letter-spacing: 0;
     line-height: normal;
+    font-size: 35px;
     min-height: 54px;
     width: 240px;
 }
@@ -122,14 +123,15 @@ textarea{
     background-color: rgba(255, 255, 255, 0.18);
     border: 1px none;
     box-shadow: inset 4px 4px 12px 12px #00000040;
-    height: 39px;
+    height: 30px;
     margin-left: 0;
-    width: 600px;
+    width: 400px;
 }
 
 .title-2 {
     letter-spacing: 0;
     line-height: normal;
+    font-size: 35px;
     min-height: 54px;
     width: 100px;
 }
@@ -163,14 +165,14 @@ textarea{
 .create-button {
     align-items: center;
     background-color: rgba(29, 185, 84, 1);
-    border: 1px none;
+    border: #1DB954 5px solid;
     border-radius: 100px;
     display: flex;
     height: 46px;
     justify-content: center;
     margin-top: 58px;
     min-width: 171px;
-    padding: 5.2px 43.4px;
+    padding: 2px 38px;
     color: rgba(0, 0, 0, 1);
     font-family: "Open Sans";
     font-size: 25px;
@@ -184,7 +186,8 @@ textarea{
 
 .create-button:hover{
     transition-duration: 0.2s;
-    color:whitesmoke
+    background-color: transparent;
+    color: whitesmoke;
 }
 
 .flex-row {
@@ -233,6 +236,7 @@ textarea{
     align-items: flex-start;
     display: flex;
     flex-direction: column;
+    font-size: 35px;
     gap: 6px;
     min-height: 98px;
     width: 135px;
@@ -242,13 +246,14 @@ textarea{
     background-color: rgba(255, 255, 255, 0.18);
     border: 1px none;
     box-shadow: inset 4px 4px 12px 12px #00000040;
-    height: 39px;
-    width: 133px;
+    height: 30px;
+    width: 100px;
 }
 
 .bpm-1 {
     letter-spacing: 0;
     line-height: normal;
+    font-size: 35px;
     min-height: 54px;
     width: 101px;
 }
@@ -279,7 +284,7 @@ textarea{
 .album-cover {
     width: 280px;
     height: 280px;
-    background: url(../defaultphoto.png);
+    background: url(../../assets/defaultphoto.png);
     border: none;
     cursor: pointer;
     overflow: hidden;
@@ -293,7 +298,7 @@ textarea{
 .album-cover:hover{
     width: 280px;
     height: 280px;
-    background: url(../choosephoto.png);
+    background: url(../../assets/choosephoto.png);
     border: none;
     cursor: pointer;
     overflow: hidden;
@@ -328,19 +333,24 @@ textarea{
 }
 
 .top-bar {
-    align-items: flex-start;
-    background-color: rgba(29, 185, 84, 1);
-    border: 1px none;
-    display: flex;
-    text-align: left;
-    height: 48px;
-    justify-content: flex-end;
-    left: 0;
-    min-width: 1440px;
-    padding: 0 12px;
-    position: fixed;
-    top: 0;
-    z-index: 3;
+   color: black;
+   background-color: #1DB954;
+   text-align: left;
+   top: 0;
+   display: inline-flex;
+   flex: stretch;
+   z-index: 50;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   padding-top: 8px;
+   padding-bottom: 4px;
+   padding-left: 8px;
+   padding-right: 100vw;
+   position: fixed;
+   font-family: sans-serif;
+   vertical-align: left;
+   align-items: left;
+   font-weight: 600;
 }
 
 .search {

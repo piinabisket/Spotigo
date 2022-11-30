@@ -97,19 +97,24 @@ td {
 }
 
 .top-bar-playlist-gen {
-    position: fixed;
-    min-width: 100vw;
-    margin-top: -8px;
-    margin-Left: -16px;
-    color: black;
-    position: fixed;
-    background-color: #1DB954;
-    text-align: left;
-    padding: 0px 8px;
-    font-family: sans-serif;
-    font-weight: 600;
-    text-anchor: "middle";
-    z-index: 7;
+   color: black;
+   background-color: #1DB954;
+   text-align: left;
+   top: 0;
+   display: inline-flex;
+   flex: stretch;
+   z-index: 50;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   padding-top: 8px;
+   padding-bottom: 4px;
+   padding-left: 8px;
+   padding-right: 100vw;
+   position: fixed;
+   font-family: sans-serif;
+   vertical-align: left;
+   align-items: left;
+   font-weight: 600;
 }
 
 .playlist-name {
@@ -151,7 +156,7 @@ td {
     height: 54px;
     margin-top: -90px;
     margin-left: 45vw;
-    background: url(../likeButton.png);
+    background: url(../../assets/likeButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
     background-size: 65%;
@@ -170,7 +175,7 @@ td {
     height: 54px;
     margin-top: -90px;
     margin-left: 45vw;
-    background: url(../likedButton.png);
+    background: url(../../assets/likedButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
     background-size: 65%;
@@ -189,7 +194,7 @@ td {
     height: 54px;
     margin-top: -90px;
     margin-left: 1.5vw;
-    background: url(../shareButton.png);
+    background: url(../../assets/shareButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
     background-size: 60%;
