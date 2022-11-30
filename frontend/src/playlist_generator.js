@@ -153,7 +153,7 @@ export default function PlaylistGenerator() {
                 <div class="playlist-art">
                     <div class='image-upload'>
                         <input type='file' accept='image/*' name='albumCov' id='albumCov'></input>
-                        <label for='albumCov' className='album-cover'></label>
+                        <label for='albumCov' className='album-cover-pg'></label>
                     </div>
                 </div>
                 <div class="flex-col">

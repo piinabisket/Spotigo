@@ -30,6 +30,7 @@ textarea{
 /* Styling */
 .opensans-bold-white-45px {
     color: rgba(255, 255, 255, 1);
+    max-height: 100vh;
     font-family: 'Open Sans';
     font-size: 45px;
     font-weight: 700;
@@ -51,7 +52,7 @@ textarea{
     background-color: rgba(255, 255, 255, 1);
     border: 1px none;
     display: flex;
-    min-height: 100vh;
+    max-height: 100vh;
     min-width: 100vw;
 }
 
@@ -281,7 +282,7 @@ textarea{
     display:none;
 }
 
-.album-cover {
+.album-cover-pg {
     width: 280px;
     height: 280px;
     background: url(../../assets/defaultphoto.png);
@@ -343,7 +344,7 @@ textarea{
    margin-top: 0px;
    margin-bottom: 0px;
    padding-top: 8px;
-   padding-bottom: 4px;
+   padding-bottom: 0px;
    padding-left: 8px;
    padding-right: 100vw;
    position: fixed;
