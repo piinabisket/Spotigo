@@ -2,9 +2,11 @@
     align-items: flex-start;
     background: linear-gradient(180deg, #313131 0%, #0A0A0A 100%);
     background-color: black;
-    display: flex;
+    display: inline-flex;
+    top: 0;
     flex-direction: column;
     height: 1440px;
+    margin-top: 0px;
     margin-left: 100;
     overflow: auto;
     min-width: 100vw;
@@ -12,20 +14,31 @@
 }
 
 .home-header {
-    position: fixed;
-    top: 0;
-    min-width: 100vw;
-    margin-Top: -8px;
-    margin-Left: -16px;
-    color: black;
-    background-color: #1DB954;
-    text-align: left;
-    margin-top: 0px;
-    padding: 0px 8px;
-    font-family: sans-serif;
-    font-weight: 600;
-    text-anchor: "middle";
-    z-index: 7;
+   color: black;
+   background-color: #1DB954;
+   text-align: left;
+   top: 0;
+   display: inline-flex;
+   flex: stretch;
+   z-index: 50;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   padding-top: 8px;
+   padding-bottom: 4px;
+   padding-left: 8px;
+   padding-right: 100vw;
+   position: fixed;
+   font-family: sans-serif;
+   vertical-align: left;
+   align-items: left;
+   font-weight: 600;
+}
+
+.logo {
+   color: black;
+   margin: 0;
+   font-family: sans-serif;
+   font-weight: 600;
 }
 
 .title {
@@ -46,14 +59,18 @@
 .playlist-button {
     align-items: center;
     background-color: rgba(29, 185, 84, 1);
-    border: 1px none;
+    border: #1DB954 solid 5px;
     border-radius: 100px;
     justify-content: center;
     display: inline-block;
-    margin-left:68vw;
+    margin-top: 70px;
+    margin-left: 70vw;
+    margin-right: 10px;
     height: 50px;
+    z-index: 100;
+    position: fixed;
     min-width: 250px;
-    padding: 5.2px 43.4px;
+    padding: 3px 38px;
     color: rgba(0, 0, 0, 1);
     font-family: "Open Sans";
     font-size: 25px;
@@ -61,11 +78,11 @@
     letter-spacing: 0;
     cursor: pointer;
     transition-duration: 0.2s;
-    position: relative;
 }
 
 .playlist-button:hover{
     transition-duration: 0.2s;
+    background-color: transparent;
     color:whitesmoke
 }
 
