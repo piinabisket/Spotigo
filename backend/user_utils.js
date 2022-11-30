@@ -21,6 +21,7 @@ async function getUsers(email) {
     }
     else
         result = await findUserByEmail(email);
+    console.log(result);
     return result;
 }
 
@@ -37,8 +38,8 @@ async function postUser(user) {
 }
 
 async function findUserByEmail(email) {
-    const playlistModel = getDbConnection().model("User", UserSchema);
-    return await playlistModel.find({ 'sid': id });
+    const userModel = getDbConnection().model("User", UserSchema);
+    return await userModel.find({ 'email': email });
 }
 
 exports.getUsers = getUsers;
