@@ -110,7 +110,7 @@ export default function HomeAuth() {
           console.log(error);
           return false;
       }
-  }
+    }
         get_liked_and_generated_playlists().then(result => {
             if (result)
                 setLikedAndGeneratedPlaylists(result);
