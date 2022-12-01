@@ -1,0 +1,229 @@
+/*
+    Styling for playlist_generated.js
+*/
+.playlist-generated {
+    background: linear-gradient(180deg, #313131 0%, #0A0A0A 100%);
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.album-cover {
+    align-self: center;
+    margin-top: 80px;
+    padding: none none;
+    max-height: 28vh;
+    max-width: 28vh;
+}
+
+.title-label {
+    margin-top: -0px;
+    color: gray;
+    font-size: 18px;
+    padding: 0px 0px;
+    margin-left: 20.15vw;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+
+}
+
+.album-label {
+    color: gray;
+    font-size: 18px;
+    padding: none none;
+    margin-left: 33.7vw;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+}
+
+.length-circle {
+    color: gray;
+    font-size: 18px;
+    padding: 0 0;
+    margin-left: 23vw;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+}
+
+.length-clock-hand {
+    color: gray;
+    padding: 1 1;
+    margin-top: 100px;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+    white-space: nowrap !important;
+}
+
+.playlist-table {
+    align-self: center;
+    margin-top: -20px;
+    height: 42vh;
+    overflow: auto;
+    z-index: 10;
+    background-color: #d9d9d90a;
+}
+
+.playlist-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: none;
+}
+
+.top-bar-playlist-gen {
+   color: black;
+   background-color: #1DB954;
+   text-align: left;
+   top: 0;
+   display: inline-flex;
+   flex: stretch;
+   z-index: 50;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   padding-top: 8px;
+   padding-bottom: 0px;
+   padding-left: 8px;
+   padding-right: 100vw;
+   position: fixed;
+   font-family: sans-serif;
+   vertical-align: left;
+   align-items: left;
+   font-weight: 600;
+}
+
+.playlist-name {
+    color: white;
+    line-height: normal;
+    position: relative !important;
+    text-align: center;
+    font-size: 32px;
+    display: inline-block;
+    position: relative;
+    margin-top: 30px;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 25px 20px;
+    margin-top: -15px;
+    text-decoration: none;
+}
+
+.author-description {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    color: gray;
+    line-height: normal;
+    text-align: center;
+    font-size: 22px;
+    display: inline-block;
+    position: relative;
+    margin-top: -25px;
+}
+
+.like-button {
+    width: 70px;
+    height: 54px;
+    margin-top: -90px;
+    margin-left: 45vw;
+    margin-bottom: 30px;
+    background: url(../../assets/likeButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.liked-button {
+    width: 70px;
+    height: 54px;
+    margin-top: -90px;
+    margin-left: 45vw;
+    background: url(../../assets/likedButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.share-button {
+    width: 70px;
+    height: 54px;
+    margin-top: -90px;
+    margin-left: 1.5vw;
+    background: url(../../assets/shareButton.png);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    clear: none !important;
+    padding: none none;
+}
+
+.search {
+    margin-left: 635px;
+    min-width: 515px;
+}
+
+.search-1 {
+    height: 46px;
+    margin-bottom: -0.12px;
+    width: 46px;
+}
+
+.logo {
+    padding: 0 2.2px;
+}
+
+.span0 {
+    color: black
+}

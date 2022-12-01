@@ -11,12 +11,9 @@ module.exports = {
         "sourceType": "module",
         "allowImportExportEverywhere": true
     },
-    "extends": [
-      "eslint:recommended",
-      "plugin:import/errors",
-      "plugin:react/recommended",
+    "plugins": [
+        "eslint-plugin-react",
+        "eslint-plugin-html",
     ],
-    "plugins": ["react", "import"],
-    "rules": {
-    }
+    "extends": "react-app"
 }
