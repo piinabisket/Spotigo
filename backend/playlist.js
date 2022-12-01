@@ -23,7 +23,7 @@ const PlaylistSchema = new mongoose.Schema({
   },
   genre: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   views: {
@@ -34,7 +34,7 @@ const PlaylistSchema = new mongoose.Schema({
   },
   album_cover:{
     type: String,
-    required: true,
+    required: false,
     trim: true
   },
   date: {

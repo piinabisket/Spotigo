@@ -52,7 +52,7 @@ textarea{
     background-color: rgba(255, 255, 255, 1);
     border: 1px none;
     display: flex;
-    max-height: 100vh;
+    min-height: 100vh;
     min-width: 100vw;
 }
 
@@ -296,7 +296,7 @@ textarea{
     padding: none none;
 }
 
-.album-cover:hover{
+.album-cover-pg:hover{
     width: 280px;
     height: 280px;
     background: url(../../assets/choosephoto.png);
