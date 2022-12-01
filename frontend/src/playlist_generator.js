@@ -96,7 +96,7 @@ export default function PlaylistGenerator() {
                 let tempo = await getAudioAnalysis(songs[i]);
                 let min = tempo - 5;
                 let max = tempo + 5;
-    
+
                 if (userBpm >= min & userBpm <= max) {
                     console.log('YES')
                     tempoMatched.push(data.items[i].track.uri);
@@ -104,10 +104,10 @@ export default function PlaylistGenerator() {
             }
 
             songs = [];
-            if(data.next){
+            if (data.next) {
                 data = await getSongs(data.next);
             }
-            else{
+            else {
                 data = null;
             }
             console.log("next 50");
@@ -137,15 +137,22 @@ export default function PlaylistGenerator() {
         let songs = await getSongsWithTempo();
         //await addPlaylistImage(playlistId);
         await addTracksToPlaylist(playlistId, songs);
-        try{
-           const title = document.getElementById('playlist_title').value;
-           const desc = document.getElementById('description').value;
-           const bpm = document.getElementById('userBpm').value;
-           await axios.post('https://spotigo.azurewebsites.net/home', {name: title, sid: playlistId, album_cover: "null", description: desc, bpm: bpm, views: 1});
+        try {
+            const title = document.getElementById('playlist_title').value;
+            const desc = document.getElementById('description').value;
+            const bpm = document.getElementById('userBpm').value;
+            const url = `https://api.spotify.com/v1/playlists/${playlistId}`;
+            const { data } = await axios.get(url, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.accessToken}`,
+                }
+            });
+            await axios.post('https://spotigo.azurewebsites.net/home', { name: title, sid: playlistId, album_cover: data.images[0].url, description: desc, bpm: bpm, views: 1 });
         }
-        catch(error){
-           alert(error);
+        catch (error) {
+            alert(error);
         }
+
         navigate(`/playlist/${playlistId}`);
     }
 

@@ -138,12 +138,9 @@ export default function PlaylistGenerated() {
                 img.src = "likeButton.png"
             }
         }
-        async function updateArt(){
-         await axios.put('https://spotigo.azurewebsites.net/playlist/', [id, albumCover]);
-        }
+        
         initialize_like_button();
-        updateArt();
-    }, [id, albumCover]);
+    }, [id]);
 
 
     // Converts the length of the playlist into minutes and seconds; spotify returns milliseconds
