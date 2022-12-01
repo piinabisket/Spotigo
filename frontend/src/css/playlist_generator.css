@@ -294,6 +294,7 @@ textarea{
     display: inline-block !important;
     clear: none !important;
     padding: none none;
+    vertical-align: right;
 }
 
 .album-cover-pg:hover{
@@ -316,7 +317,7 @@ textarea{
     display: flex;
     justify-content: center;
     margin-left: 150px;
-    margin-top: 50px;
+    margin-top: 60px;
     margin-right: 160px;
     height: 350px;
     width: 350px;
@@ -418,3 +419,49 @@ textarea{
     height: 35px;
     width: 34px;
 }
+
+@keyframes spinner {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+ .loading-spinner {
+   width: 120px;
+   height: 120px;
+   border-radius: 50%;
+   animation: spinner 2s linear infinite;
+   align-self: flex-end;
+   scale: 50%;
+   transform-origin: 50% 50%;
+   margin-bottom: -30px;
+ }
+
+ .spinner-container {
+   display: grid;
+   position: fixed;
+   z-index: 49;
+   background-color: #1DB954;
+   justify-items: center;
+   text-align: center;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+   transition: .2s;
+ }
+
+ .spinner-container>h1 {
+   color: whitesmoke;
+   font-family: 'Open Sans';
+   vertical-align: top;
+   font-size: 20px;
+   align-self: flex-start;
+ }
+
+ .spinner-container>h2 {
+   vertical-align: bottom;
+   bottom: 0;
+   margin: 0px;
+ }
