@@ -137,6 +137,15 @@ export default function PlaylistGenerator() {
         let songs = await getSongsWithTempo();
         //await addPlaylistImage(playlistId);
         await addTracksToPlaylist(playlistId, songs);
+        try{
+           const title = document.getElementById('playlist_title').value;
+           const desc = document.getElementById('description').value;
+           const bpm = document.getElementById('userBpm').value;
+           await axios.post('https://spotigo.azurewebsites.net/home', {name: title, sid: playlistId, description: desc, bpm: bpm, views: 1, });
+        }
+        catch(error){
+           alert(error);
+        }
         navigate(`/playlist/${playlistId}`);
     }
 
