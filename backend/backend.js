@@ -73,6 +73,17 @@ app.delete('/generated/:id', async (req, res) => {
    }
 });
 
+app.get('/generated/:id', async (req, res) => {
+   const sid = req.params['id'];
+   const result = await playlistUtil.getBySid(sid)
+   if (result){
+      res.send({playlist_list: result});
+   }
+   else{
+      res.status(404).send('Playlist not found');
+   }
+});
+
 app.post('/generated', async (req, res) => {
    const playlist = req.body;
    const savedPlaylist = await playlistUtil.postPlaylist(playlist);
