@@ -78,22 +78,10 @@ async function updatePlaylistArt(id, albumCover){
 //    return await playlistModel.find({'name':name});
 // }
 
-<<<<<<< HEAD
-// async function findPlaylistBySid(sid){
-//    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-//    return await playlistModel.find({'sid':sid});
-// }
-
-// async function findPlaylistByGenre(genre){
-//    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-//    return await playlistModel.find({'genre':genre});
-// }
-=======
 async function getBySid(sid) {
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
    return await playlistModel.find({ 'sid': sid });
 }
->>>>>>> e53107a3cdf6cc9c78b30f8665bdf6f18758abc1
 
 async function findPlaylistByGenre(genre) {
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
