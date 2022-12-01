@@ -6,15 +6,13 @@
     background-color: black;
     display: flex;
     flex-direction: column;
-    position: fixed;
-    height: 1440px;
     overflow: auto;
     width: 1440px;
 }
 
 .album-cover {
     align-self: center;
-    margin-top: 65px;
+    margin-top: 80px;
     padding: none none;
     max-height: 28vh;
     max-width: 28vh;
@@ -83,6 +81,7 @@
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 th,
@@ -125,7 +124,7 @@ td {
     font-size: 32px;
     display: inline-block;
     position: relative;
-    margin-top: 10px;
+    margin-top: 30px;
     font-family: sans-serif;
     font-weight: 700;
     padding: 25px 20px;
@@ -156,6 +155,7 @@ td {
     height: 54px;
     margin-top: -90px;
     margin-left: 45vw;
+    margin-bottom: 30px;
     background: url(../../assets/likeButton.png);
     background-color: Transparent;
     background-repeat: no-repeat;
