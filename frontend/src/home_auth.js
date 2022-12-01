@@ -95,22 +95,22 @@ export default function HomeAuth() {
         }
     }, []);
 
-    /*
-    async function get_liked_and_generated_playlists() {
-        const email = await get_user_email();
-
-        try {
-            const response = await axios.get(('https://spotigo.azurewebsites.net/users?email=' + email));
-            return [...new Set([...response.data.users_list[0].liked_songs, ...response.data.users_list[0].generated_songs])]
-        }
-        catch (error) {
-            //We're not handling errors. Just logging into the console.
-            console.log(error);
-            return false;
-        }
-    }
 
     useEffect(() => {
+        
+    async function get_liked_and_generated_playlists() {
+      const email = await get_user_email();
+
+      try {
+          const response = await axios.get(('https://spotigo.azurewebsites.net/users?email=' + email));
+          return [...new Set([...response.data.users_list[0].liked_songs, ...response.data.users_list[0].generated_songs])]
+      }
+      catch (error) {
+          //We're not handling errors. Just logging into the console.
+          console.log(error);
+          return false;
+      }
+  }
         get_liked_and_generated_playlists().then(result => {
             if (result)
                 setLikedAndGeneratedPlaylists(result);
