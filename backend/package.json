@@ -4,10 +4,11 @@
   "description": "",
   "main": "backend.js",
   "scripts": {
-    "test": "npx eslint .",
+    "test": "",
     "dev": "nodemon backend.js",
     "start": "node backend.js"
   },
+
   "author": "npx eslint .",
   "license": "ISC",
   "dependencies": {
