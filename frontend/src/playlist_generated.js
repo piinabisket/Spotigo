@@ -68,11 +68,11 @@ export default function PlaylistGenerated() {
                     Authorization: `Bearer ${localStorage.accessToken}`,
                 }
             });
-
+            await axios.put('https://spotigo.azurewebsites.net/playlist/:id');
             const response = await axios({
                 method: 'get',
                 url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
-            })
+            });
 
             var img = document.getElementById("likeButton");
             if (response.data.users_list[0].liked_songs.includes(id)) {
