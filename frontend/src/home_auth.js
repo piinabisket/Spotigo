@@ -115,7 +115,8 @@ export default function HomeAuth() {
             if (result)
                 setLikedAndGeneratedPlaylists(result);
         });
-    }, []);
+        console.log(liked_and_generated_playlists);
+    }, [liked_and_generated_playlists]);
 
 
     return (
@@ -170,36 +171,7 @@ export default function HomeAuth() {
                 </div>
                 <h1 className="liked-and-generated">Liked and Generated Playlists</h1>
                 <div class="playlist-list-1">
-                    {liked_and_generated_playlists.map((row, index) => {
-                        if (index === 0) {
-                            return (
-                                <div key={index} className="playlist-tile">
-                                    <div className="overlap-group">
-                                        <Link to={'/playlist/' + row.sid}>
-                                            <img className="album-cover-home" src={row.album_cover} alt={index}></img>
-                                        </Link>
-                                        <h1 className="playlist-title-home">{row.name}</h1>
-                                        <h1 className="playlist-BPM-home">{row.bpm} BPM</h1>
-                                        <h1 className="playlist-description-home">{row.description}</h1>
-                                    </div>
-                                </div>
-                            );
-                        }
-                        else {
-                            return (
-                                <div key={index} className="playlist-tile-1">
-                                    <div className="overlap-group">
-                                        <Link to={'/playlist/' + row.sid}>
-                                            <img className="album-cover-home" src={row.album_cover} alt={index}></img>
-                                        </Link>
-                                        <h1 className="playlist-title-home">{row.name}</h1>
-                                        <h1 className="playlist-BPM-home">{row.bpm} BPM</h1>
-                                        <h1 className="playlist-description-home">{row.description}</h1>
-                                    </div>
-                                </div>
-                            );
-                        }
-                    })}
+                    
                 </div>
             </div>
         </div>
