@@ -37,10 +37,28 @@ async function postUser(user) {
 }
 
 async function findUserByEmail(email) {
-    const playlistModel = getDbConnection().model("User", UserSchema);
-    return await playlistModel.find({ 'sid': id });
+    const userModel = getDbConnection().model("User", UserSchema);
+    return await userModel.find({ 'email': email });
+}
+
+async function updateUser(user) {
+    const userModel = getDbConnection();
+    try {
+        var myquery = { email: user.email };
+        var newvalues = { $set: { liked_songs: user.liked_songs, generated_songs: user.generated_songs } };
+        await userModel.collection("users_list").updateOne(myquery, newvalues, function (err, res) {
+            if (err) return false;
+            console.log("1 document updated");
+        });
+        return true;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
 }
 
 exports.getUsers = getUsers;
 exports.postUser = postUser;
+exports.updateUser = updateUser;
+
 

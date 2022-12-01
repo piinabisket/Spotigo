@@ -35,8 +35,6 @@ export default function HomeAuth() {
 
     useEffect(() => {
         get_popular_playlists().then(result => {
-            console.log("hello");
-            console.log(result);
             if (result)
                 setPopularPlaylists(result);
         });
@@ -54,17 +52,17 @@ export default function HomeAuth() {
         return paramsSplit;
     }
 
-    /*
-    const get_user_name = async () => {
+    
+    async function get_user_email(){
         const url = "https://api.spotify.com/v1/me";
         const { data } = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
             }
         });
-        document.getElementById('user_name').innerHTML = data.display_name;
+        localStorage.setItem("email", data.email);
     }
-    */
+    
 
     useEffect(() => {
         if (window.location.hash.includes("access_token")) {
@@ -77,6 +75,7 @@ export default function HomeAuth() {
             localStorage.setItem("accessToken", access_token);
             localStorage.setItem("tokenType", token_type);
             localStorage.setItem("expiresIn", expires_in);
+            get_user_email();
         }
     }, []);
 
@@ -101,7 +100,6 @@ export default function HomeAuth() {
 
                 <div className="playlist-list">
                     {popular_playlists.map((row, index) => {
-                        console.log(row);
                         if (index === 0) {
                             return (
                                 <div key={index} className="playlist-tile">
