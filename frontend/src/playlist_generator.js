@@ -6,7 +6,6 @@ import "./css/playlist_generator.css"
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 
-
 export default function PlaylistGenerator() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);

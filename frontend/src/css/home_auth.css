@@ -175,7 +175,7 @@
     font-weight: 700 !important;
     line-height: normal !important;
     margin-left: 6vw !important;
-    margin-top: 2vh;
+    margin-top: 20px;
     min-height: 68px !important;
     white-space: nowrap !important;
     z-index: 1 !important;
@@ -183,7 +183,6 @@
     clear: none !important;
     padding: none none;
 }
-
 
 .playlist-list-1 {
     align-items: flex-start;
@@ -222,7 +221,7 @@
 
 .overlap-group {
     align-items: flex-start;
-    background: linear-gradient(180deg, #646464 0%, #191919 100%);
+    background: linear-gradient(180deg, #3a3a3a 0%, #191919 100%);
     border-radius: 10px;
     display: flex;
     flex-direction: column;

@@ -52,8 +52,9 @@ textarea{
     background-color: rgba(255, 255, 255, 1);
     border: 1px none;
     display: flex;
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0px;
 }
 
 .hidden,
@@ -294,7 +295,7 @@ textarea{
     display: inline-block !important;
     clear: none !important;
     padding: none none;
-    vertical-align: right;
+    align-self: right;
 }
 
 .album-cover-pg:hover{
