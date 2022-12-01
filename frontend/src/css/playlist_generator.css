@@ -296,7 +296,7 @@ textarea{
     padding: none none;
 }
 
-.album-cover:hover{
+.album-cover-pg:hover{
     width: 280px;
     height: 280px;
     background: url(../../assets/choosephoto.png);
