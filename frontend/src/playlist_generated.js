@@ -68,7 +68,6 @@ export default function PlaylistGenerated() {
                     Authorization: `Bearer ${localStorage.accessToken}`,
                 }
             });
-            await axios.put('https://spotigo.azurewebsites.net/playlist/:id');
             const response = await axios({
                 method: 'get',
                 url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
@@ -113,7 +112,7 @@ export default function PlaylistGenerated() {
         }
 
         // useState calls to update state of album cover, album url, and list of songs
-        parsePlaylist(id).then(result => {
+        parsePlaylist(id).then(result => {   
             if (result) {
                 setPlaylist(result['listOfSongs']);
                 setAlbumCover(result['albumCover'])
@@ -139,9 +138,12 @@ export default function PlaylistGenerated() {
                 img.src = "likeButton.png"
             }
         }
-
+        async function updateArt(){
+         await axios.put('https://spotigo.azurewebsites.net/playlist/', [id, albumCover]);
+        }
         initialize_like_button();
-    }, [id]);
+        updateArt();
+    }, [id, albumCover]);
 
 
     // Converts the length of the playlist into minutes and seconds; spotify returns milliseconds

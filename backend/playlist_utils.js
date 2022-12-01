@@ -1,4 +1,3 @@
-import axios from 'axios'
 const mongoose = require('mongoose');
 const PlaylistSchema = require("./playlist");
 
@@ -57,16 +56,6 @@ async function getPlaylists(genre, bpm) {
    return result;
 }
 
-async function parsePlaylist(id) {
-   const url = `https://api.spotify.com/v1/playlists/${id}`;
-   console.log(localStorage.accessToken);
-   const { data } = await axios.get(url, {
-       headers: {
-           Authorization: `Bearer ${localStorage.accessToken}`,
-       }
-   });
-}
-
 async function updatePlaylistArt(id, albumCover){
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
    const result = await playlistModel.updateOne({'sid': id}, {'album_cover': albumCover});
@@ -94,7 +83,6 @@ async function findPlaylistByBPM(bpm) {
 }
 
 exports.updatePlaylistArt = updatePlaylistArt;
-exports.parsePlaylist = parsePlaylist;
 exports.postPlaylist = postPlaylist;
 exports.deleteBySid = deleteBySid;
 exports.getPlaylists = getPlaylists;

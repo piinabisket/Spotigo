@@ -62,14 +62,9 @@ app.put('/users', async (req, res) => {
        res.status(500).end();
 });
 
-app.put('/playlist/:id', async (req, res) => {
-   const sid = req.params['id'];
-   const albumCover = "null";
-   playlistUtil.parsePlaylist(id).then(result => {
-      if (result) {
-          albumCover = result['albumCover'];
-      }
-   });
+app.put('/playlist/', async (req, res) => {
+   const sid = req.body[0];
+   const albumCover = req.body[1];
    const status = playlistUtil.updatePlaylistArt(sid, albumCover);
    if (status){
       res.status(201);
