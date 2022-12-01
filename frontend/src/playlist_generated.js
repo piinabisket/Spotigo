@@ -10,35 +10,47 @@ export default function PlaylistGenerated() {
     const [albumCover, setAlbumCover] = useState();
     const [author_url, setAuthorUrl] = useState();
 
-    async function isLiked() {
-        let response;
-        try {
-            response = await axios({
+    // This function likes the playlist into our database if not already, and removes it otherwise.
+    async function likePlaylist() {
+        var img = document.getElementById("likeButton");
+        if (img.className === "liked-button") {
+            const response = await axios({
                 method: 'get',
                 url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
-            })
-        } catch (error) {
-            alert("Unable to access database");
-        }
-
-        if (response.length < 1) {
-            alert("Internal error, current user does not exist. Please log in");
-            return false;
-        }
-
-        return (response.data.users_list[0].liked_songs.includes(id));
-    }
-
-    // This function likes the playlist into our database; not complete -> needs a backend call to add the playlist
-    function likePlaylist() {
-        var img = document.getElementById("likeButton");
-        if (isLiked(id)) {
-            img.className = "liked-button";
-            img.src = "likedButton.png"
+            });
+            console.log(response);
+            response.data.users_list[0].liked_songs = response.data.users_list[0].liked_songs.filter(function(item) {
+                return item !== id;
+            });
+            try {
+                await axios({
+                    method: 'put',
+                    url: "https://spotigo.azurewebsites.net/users",
+                    data: response.data.users_list[0]
+                });
+                img.className = "like-button";
+                img.src = "likeButton.png"
+            } catch (error) {
+                alert(error);
+            }
         }
         else {
-            img.className = "like-button";
-            img.src = "likeButton.png"
+            const response = await axios({
+                method: 'get',
+                url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
+            });
+            response.data.users_list[0].liked_songs.push(id);
+            try {
+                await axios({
+                    method: 'put',
+                    url: "https://spotigo.azurewebsites.net/users",
+                    data: response.data.users_list[0]
+                });
+                img.className = "liked-button";
+                img.src = "likedButton.png"
+            } catch (error) {
+                alert(error);
+            }
         }
     }
 
@@ -106,13 +118,11 @@ export default function PlaylistGenerated() {
                     }
                 );
             }
-
-
             return songs;
         }
 
         // useState calls to update state of album cover, album url, and list of songs
-        parsePlaylist(id).then(result => {   
+        parsePlaylist(id).then(result => {
             if (result) {
                 setPlaylist(result['listOfSongs']);
                 setAlbumCover(result['albumCover'])
@@ -129,16 +139,15 @@ export default function PlaylistGenerated() {
                 method: 'get',
                 url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
             });
-            if (response.data.users_list[0].liked_songs.includes(id)){
+            if (response.data.users_list[0].liked_songs.includes(id)) {
                 img.className = "liked-button";
                 img.src = "likedButton.png"
             }
-            else{
+            else {
                 img.className = "like-button";
                 img.src = "likeButton.png"
             }
         }
-        
         initialize_like_button();
     }, [id]);
 
@@ -172,7 +181,6 @@ export default function PlaylistGenerated() {
                                 <path d="M1 0V6L4.5 9.5" stroke="#767676" stroke-width="2.4" />
                             </svg>
                         </svg>
-
                     </h1>
                     <div className="playlist-table" >
                         {

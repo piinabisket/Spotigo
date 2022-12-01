@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function HomeAuth() {
     const [popular_playlists, setPopularPlaylists] = useState([]);
-    //const [liked_and_generated_playlists, setLikedAndGeneratedPlaylists] = useState([]);
+    const [liked_and_generated_playlists, setLikedAndGeneratedPlaylists] = useState([]);
 
     /*
     const search_song = async () => {
@@ -116,7 +116,6 @@ export default function HomeAuth() {
                 setLikedAndGeneratedPlaylists(result);
         });
     }, []);
-    */
 
 
     return (
