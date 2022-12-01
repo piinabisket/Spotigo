@@ -141,7 +141,7 @@ export default function PlaylistGenerator() {
            const title = document.getElementById('playlist_title').value;
            const desc = document.getElementById('description').value;
            const bpm = document.getElementById('userBpm').value;
-           await axios.post('http://localhost:4000/generator', {name: title, sid: playlistId, description: desc, bpm: bpm, views: 1, });
+           await axios.post('https://spotigo.azurewebsites.net/home', {name: title, sid: playlistId, description: desc, bpm: bpm, views: 1, });
         }
         catch(error){
            alert(error);

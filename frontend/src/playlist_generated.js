@@ -6,7 +6,7 @@ import Table from './Table.js'
 
 export default function PlaylistGenerated() {
     const [playlist, setPlaylist] = useState([]);
-    const { id } = useParams('/playlist/:id');
+    const { id } = useParams();
     const [albumCover, setAlbumCover] = useState();
     const [author_url, setAuthorUrl] = useState();
 
@@ -184,10 +184,10 @@ export default function PlaylistGenerated() {
                     <a href={author_url} className="playlist-name" id="playlist-name-title" target="_blank" rel="noreferrer"> </a>
                     <p className="author-description" id="playlist-owner-desc"></p>
                     <div>
-                        <button id="likeButton" className="like-button" onClick={likePlaylistToSpotify}>
+                        <button id="likeButton" className="like-button" onClick={likePlaylist}>
                             <image src="likeButton.png" alt="no image"></image>
                         </button>
-                        <button id="shareButton" className="share-button" onClick={likePlaylist}>
+                        <button id="shareButton" className="share-button" onClick={likePlaylistToSpotify}>
                             <image src="shareButton.png" alt="no image"></image>
                         </button>
                     </div>
