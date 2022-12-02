@@ -160,19 +160,6 @@ export default function PlaylistGenerator() {
       document.getElementById("album-cover-pg").src = document.getElementById("albumCov").value;
     }
 
-     async function addPlaylistImage(playlistId) {
-        if(document.getElementById('albumCov').files[0]){
-            let blob = document.getElementById('albumCov').files[0];
-            var reader = new FileReader();
-
-            reader.onload = function(e){
-                console.log(e.target.result); // Prints out data of image I think?
-            }
-
-            reader.readAsDataURL(blob);
-        }
-     }
-
     async function createPlaylistByTempo() {
         setIsLoading(true);
         const userId = await getUserId();
@@ -212,8 +199,8 @@ export default function PlaylistGenerator() {
                 </h1>
                 <div class="playlist-art">
                     <div class='image-upload'>
-                        <input type='file' accept='image/jpeg' name='albumCov' id='albumCov'></input>
-                        <label for='albumCov' id="album-cover-pg" className='album-cover-pg' onchange="changeImage()"></label>
+                        <input type='file' accept='image/jpeg' name='albumCov' id='albumCov' onchange={changeImage()}></input>
+                        <label for='albumCov' src="../../assets/defaultphoto.png" id="album-cover-pg" className='album-cover-pg'></label>
                     </div>
                 </div>
                 <div class="flex-col">
