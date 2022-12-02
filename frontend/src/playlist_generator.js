@@ -118,27 +118,25 @@ export default function PlaylistGenerator() {
         return tempoMatched;
     }
 
-    // async function addPlaylistImage(playlistId) {
-    //     let url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/images';
-    //     const image = document.getElementById('albumCov').files[0];
-    //     console.log(image);
+     async function addPlaylistImage(playlistId) {
+        if(document.getElementById('albumCov').files[0]){
+            let blob = document.getElementById('albumCov').files[0];
+            var reader = new FileReader();
 
-    //     const { data } = await axios.put(url, {
-    //         headers: {
-    //             Authorization: `Bearer ${localStorage.accessToken}`,
-    //             'Content-Type': 'image/jpeg'
-    //         },
-    //         body: image
-    //     })
-    //     return data;
-    // }
+            reader.onload = function(e){
+                console.log(e.target.result); // Prints out data of image I think?
+            }
+
+            reader.readAsDataURL(blob);
+        }
+     }
 
     async function createPlaylistByTempo() {
         setIsLoading(true);
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);
         let songs = await getSongsWithTempo();
-        //await addPlaylistImage(playlistId);
+        //let image = await addPlaylistImage(playlistId);
         await addTracksToPlaylist(playlistId, songs);
         try {
             const title = document.getElementById('playlist_title').value;
@@ -173,7 +171,7 @@ export default function PlaylistGenerator() {
                 </h1>
                 <div class="playlist-art">
                     <div class='image-upload'>
-                        <input type='file' z-index="44" accept='image/*' name='albumCov' id='albumCov'></input>
+                        <input type='file' accept='image/*' name='albumCov' id='albumCov'></input>
                         <label for='albumCov' className='album-cover-pg'></label>
                     </div>
                 </div>
