@@ -93,6 +93,11 @@ test("Fetching all playlists", async () => {
    expect(playlists).toBeTruthy();
  });
 
+ test("Delete - failure", async () => {
+   const playlists = await playlistUtil.deleteBySid("1234789");
+   expect(playlists).toBeDefined();
+ });
+
  test("Post - success", async () => {
    const playlists = await playlistUtil.postPlaylist({name: "new playlist", sid: "00000", bpm: 10, description: "its new"});
    expect(playlists).toBeDefined();

@@ -43,21 +43,10 @@ async function deleteBySid(sid) {
    }
 }
 
-async function getPlaylists(genre, bpm) {
+async function getPlaylists() {
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
    let result;
-   if (genre === undefined && bpm === undefined) {
-      result = await playlistModel.find();
-   }
-   else if (genre && !bpm) {
-      result = await findPlaylistByGenre(genre);
-   }
-   else if (bpm && !genre) {
-      result = await findPlaylistByBPM(bpm);
-   }
-   // else if (bpm && genre){
-   //    result = await findPlaylistByBoth(genre, bpm);
-   // }  
+   result = await playlistModel.find();
    return result;
 }
 
@@ -75,16 +64,6 @@ async function updatePlaylistArt(id, albumCover){
 async function getBySid(sid) {
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
    return await playlistModel.find({ 'sid': sid });
-}
-
-async function findPlaylistByGenre(genre) {
-   const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-   return await playlistModel.find({ 'genre': genre });
-}
-
-async function findPlaylistByBPM(bpm) {
-   const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-   return await playlistModel.find({ 'bpm': bpm });
 }
 
 exports.setConnection = setConnection;
