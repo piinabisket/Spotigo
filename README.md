@@ -2,7 +2,7 @@
 
 # Spotify BPM Playlist Generator - Spotigo!
 
-Spotigo Is an all-in-one solution for discovering and creating playlists based off of BPM.
+<a href="https://www.spotigo.site">Spotigo</a> is an all-in-one solution for discovering and creating playlists based off of BPM.
 The core functionality of the site is the playlist generator. It takes in a BPM and automatically
 generates a playlist consisting of songs near the given BPM. 
 - This would be a useful tool for quickly creating and sharing workout playlists, tailored to your likes and interests.
@@ -18,16 +18,24 @@ https://www.figma.com/proto/xZggrNkc4vgaNoWWnbD3Dv/SpotifyBPM?page-id=0%3A1&node
 
 <h1>Environment Setup:</h1>
 
+This React project was created with npm, node.js, and express.json.
+To set up:
+npm is installed with
+```npm ci```
+```npm install --save-dev jest```
+the frontend and backend can be run with
+```npm start```
+in their respective folders.
 
 <h1>Code Linter/Style Checker:</h1>
 
 This project uses <a href='https://eslint.org/'>eslint</a> as it's linter and style checker.
 It can be installed with 
-<p font-family='source-code-pro'>npm install eslint --global</p> 
+```npm install eslint --global ```
 and run with
-<p font-family='source-code-pro'>npx eslint .</p> 
+```npx eslint .```
 or
-<p font-family='source-code-pro'>npm test</p> 
+```npm test```.
 
 <h1> Class Diagram: </h1>
 
