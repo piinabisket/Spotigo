@@ -174,7 +174,7 @@ export default function PlaylistGenerator() {
         const userId = await getUserId();
         const playlistId = await createPlaylist(userId);
         let songs = await getSongsWithTempo();
-        let image = await addPlaylistImage(playlistId);
+        await addPlaylistImage(playlistId);
         await addTracksToPlaylist(playlistId, songs);
         try {
             const title = document.getElementById('playlist_title').value;
