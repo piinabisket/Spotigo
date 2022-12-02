@@ -7,8 +7,12 @@ generates a playlist consisting of songs near the given BPM.
 - Users can share generated playlists, and the site will curate these playlists and allow users to search through the playlist database.
 - Users can log in to have their feed and recommendations personalized.
 
+Demo: 
+
 Prototype:
 https://www.figma.com/file/xZggrNkc4vgaNoWWnbD3Dv/SpotifyBPM?node-id=0%3A1
+
+Environment Setup:
 
 Code Linter/Style Checker:
 https://eslint.org/
@@ -20,3 +24,5 @@ Class Diagram:
 Sequence Diagram for Login Flow:
 
 <img src = 'https://user-images.githubusercontent.com/55904876/205182550-a403e329-0965-49bc-be87-7e653247f641.png' width=50% height=50%>
+
+Code Coverage Report:
