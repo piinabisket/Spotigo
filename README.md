@@ -25,12 +25,12 @@ https://eslint.org/
 
 <h1> Class Diagram: </h1>
 
-<img src = 'https://user-images.githubusercontent.com/34257994/205183069-d4ea711c-3335-4003-b7ee-2d92a0d38337.png' width=50% height=50%>
+<img src = 'https://github.com/piinabisket/Spotigo/blob/main/materials/Class%20Diagram.png?raw=true' width=50% height=50%>
 
 
 <h1> Sequence Diagram for Login Flow: </h1>
 
-<img src = 'https://user-images.githubusercontent.com/55904876/205182550-a403e329-0965-49bc-be87-7e653247f641.png' width=50% height=50%>
+<img src = 'https://github.com/piinabisket/Spotigo/blob/main/materials/Sequence%20Diagram.png?raw=true' width=50% height=50%>
 
 
 <h1> Code Coverage Report: </h1>
