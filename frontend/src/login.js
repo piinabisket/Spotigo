@@ -25,7 +25,7 @@ export default function App() {
                            Spotigo
                         </h3>
                     </h1>
-                    <h2> Spotigo: an all in one solution to</h2>
+                    <h2> Spotigo - an all in one solution to</h2>
                     <h2> BPM playlist creation and discovery </h2>
                     <h4> Generate playlists from your liked songs</h4>
                     <h4> and discover a new go-to workout playlist</h4>
