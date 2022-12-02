@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
-const playlistUtil = require('./playlist_utils');
-const userUtil = require('./user_utils');
+const playlistUtil = require('./model/playlist_utils');
+const userUtil = require('./model/user_utils');
 
 const app = express();
 const port = 4000;
