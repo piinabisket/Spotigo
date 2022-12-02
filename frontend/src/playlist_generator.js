@@ -158,6 +158,10 @@ export default function PlaylistGenerator() {
         return tempoMatched;
     }
 
+    async function changeImage() {
+      document.getElementById("album-cover-pg").src = document.getElementById("albumCov").value;
+    }
+
     async function createPlaylistByTempo() {
         setIsLoading(true);
         const userId = await getUserId();
@@ -197,8 +201,8 @@ export default function PlaylistGenerator() {
                 </h1>
                 <div class="playlist-art">
                     <div class='image-upload'>
-                        <input type='file' accept='image/jpeg' name='albumCov' id='albumCov' onChange={console.log('changed')}></input>
-                        <label for='albumCov' className='album-cover-pg'></label>
+                        <input type='file' accept='image/jpeg' name='albumCov' id='albumCov' onchange={changeImage()}></input>
+                        <label for='albumCov' src="../../assets/defaultphoto.png" id="album-cover-pg" className='album-cover-pg'></label>
                     </div>
                 </div>
                 <div class="flex-col">
