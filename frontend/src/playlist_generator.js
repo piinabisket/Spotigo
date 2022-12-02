@@ -118,18 +118,18 @@ export default function PlaylistGenerator() {
         return tempoMatched;
     }
 
-     async function addPlaylistImage(playlistId) {
-        if(document.getElementById('albumCov').files[0]){
-            let blob = document.getElementById('albumCov').files[0];
-            var reader = new FileReader();
+    //  async function addPlaylistImage(playlistId) {
+    //     if(document.getElementById('albumCov').files[0]){
+    //         let blob = document.getElementById('albumCov').files[0];
+    //         var reader = new FileReader();
 
-            reader.onload = function(e){
-                console.log(e.target.result); // Prints out data of image I think?
-            }
+    //         reader.onload = function(e){
+    //             console.log(e.target.result); // Prints out data of image I think?
+    //         }
 
-            reader.readAsDataURL(blob);
-        }
-     }
+    //         reader.readAsDataURL(blob);
+    //     }
+    //  }
 
     async function createPlaylistByTempo() {
         setIsLoading(true);
