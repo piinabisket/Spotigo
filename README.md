@@ -20,18 +20,22 @@ https://www.figma.com/proto/xZggrNkc4vgaNoWWnbD3Dv/SpotifyBPM?page-id=0%3A1&node
 
 
 <h1>Code Linter/Style Checker:</h1>
-https://eslint.org/
 
+This project uses <a href='https://eslint.org/'>eslint</a> as it's linter and style checker.
+It can be installed with 
+<p font-family='source-code-pro'>npm install eslint --global</p> 
+and run with
+<p font-family='source-code-pro'>npx eslint .</p> 
+or
+<p font-family='source-code-pro'>npm test</p> 
 
 <h1> Class Diagram: </h1>
 
 <img src = 'https://github.com/piinabisket/Spotigo/blob/main/materials/Class%20Diagram.png?raw=true' width=50% height=50%>
 
-
 <h1> Sequence Diagram for Login Flow: </h1>
 
 <img src = 'https://github.com/piinabisket/Spotigo/blob/main/materials/Sequence%20Diagram.png?raw=true' width=50% height=50%>
-
 
 <h1> Code Coverage Report: </h1>
 
