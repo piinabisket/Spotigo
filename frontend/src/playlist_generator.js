@@ -32,18 +32,20 @@ export default function PlaylistGenerator() {
     }
 
     function encodeImageFileAsURL() {
-        var file = document.getElementById('albumCov').files[0];
+        if(document.getElementById('albumCov').files[0]){
+            var file = document.getElementById('albumCov').files[0];
 
-        return new Promise(function (resolve, reject) {
-            let reader = new FileReader();
-            reader.onload = function (event) {
-                resolve(event.target.result);
-            };
-            reader.onerror = function (event) {
-                reject(event);
-            };
-            reader.readAsDataURL(file)
-        });
+            return new Promise(function (resolve, reject) {
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    resolve(event.target.result);
+                };
+                reader.onerror = function (event) {
+                    reject(event);
+                };
+                reader.readAsDataURL(file)
+            });
+        }
     }
 
     async function updatePlaylistCover(playlistId) {
@@ -195,7 +197,7 @@ export default function PlaylistGenerator() {
                 </h1>
                 <div class="playlist-art">
                     <div class='image-upload'>
-                        <input type='file' accept='image/jpeg' name='albumCov' id='albumCov'></input>
+                        <input type='file' accept='image/jpeg' name='albumCov' id='albumCov' onChange={console.log('changed')}></input>
                         <label for='albumCov' className='album-cover-pg'></label>
                     </div>
                 </div>
