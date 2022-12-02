@@ -25,6 +25,7 @@ jobs:
         # Build and test the project, then
         # deploy to Azure Web App.
         npm ci
+        npm install --save-dev jest
         npm run build --if-present
         npm run test --if-present
       working-directory: backend
