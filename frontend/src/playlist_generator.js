@@ -87,7 +87,10 @@ export default function PlaylistGenerator() {
         const data = await axios.post(url, JSON.stringify(playlistData), config);
         localStorage.setItem("playlistId", data.data.id);
 
-        updatePlaylistCover(data.data.id);
+        if(document.getElementById('albumCov').files[0]){
+            console.log('image exists');
+            updatePlaylistCover(data.data.id);
+        }
 
         return data.data.id;
     }
