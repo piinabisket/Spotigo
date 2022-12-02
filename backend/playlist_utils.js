@@ -3,6 +3,11 @@ const PlaylistSchema = require("./playlist");
 
 let dbConnection;
 
+function setConnection(newConn){
+   dbConnection = newConn;
+   return dbConnection;
+ }
+
 function getDbConnection() {
    if (!dbConnection) {
       dbConnection = mongoose.createConnection("mongodb+srv://fdudley:rPQfpsytNB7oC4Fy@spotigodb.bxewpi2.mongodb.net/?retryWrites=true&w=majority", {
@@ -82,6 +87,7 @@ async function findPlaylistByBPM(bpm) {
    return await playlistModel.find({ 'bpm': bpm });
 }
 
+exports.setConnection = setConnection;
 exports.updatePlaylistArt = updatePlaylistArt;
 exports.postPlaylist = postPlaylist;
 exports.deleteBySid = deleteBySid;
