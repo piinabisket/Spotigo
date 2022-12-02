@@ -1,3 +1,5 @@
+![SpotigoCI](https://github.com/piinabisket/Spotigo/actions/workflows/node.js.yml/badge.svg)
+
 # Spotify BPM Playlist Generator
 
 Spotigo Is an all-in-one solution for discovering and creating playlists based off of BPM.
