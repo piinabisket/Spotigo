@@ -31,7 +31,7 @@ in their respective folders.
 
 <h1>Code Linter/Style Checker:</h1>
 
-This project uses <a href='https://eslint.org/'>eslint</a> as it's linter and style checker.
+This project uses <a href='https://eslint.org/'>eslint</a> as its linter and style checker.
 It can be installed with 
 ```npm install eslint --global ```
 and run with
