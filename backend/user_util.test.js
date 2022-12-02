@@ -67,3 +67,8 @@ afterEach(async () => {
    const users = await userUtil.postUser("Leela@1bdI.com");
    expect(users).toBeDefined();
  });
+
+ test("Update user", async () => {
+  const updatedUser = await userUtil.updateUser({email: "bender@benderisgreat.com", liked_songs: ["test"]});
+  expect(updatedUser).toBeTruthy();
+});

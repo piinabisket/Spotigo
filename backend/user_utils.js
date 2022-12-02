@@ -52,7 +52,7 @@ async function updateUser(user) {
     try {
         var myquery = { email: user.email };
         var newvalues = { $set: { liked_songs: user.liked_songs, generated_songs: user.generated_songs } };
-        await userModel.collection("users_list").updateOne(myquery, newvalues, function (err, res) {
+        const updatedUser = await userModel.collection("users_list").updateOne(myquery, newvalues, function (err, res) {
             if (err) return false;
             console.log("1 document updated");
         });

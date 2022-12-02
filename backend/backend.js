@@ -55,7 +55,6 @@ app.post('/users', async (req, res) => {
 app.put('/users', async (req, res) => {
    const user = req.body;
    const updatedUser = await userUtil.updateUser(user);
-   console.log(updatedUser);
    if (updatedUser)
        res.status(201).send(updatedUser);
    else
