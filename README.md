@@ -20,10 +20,12 @@ https://www.figma.com/proto/xZggrNkc4vgaNoWWnbD3Dv/SpotifyBPM?page-id=0%3A1&node
 
 This React project was created with npm, node.js, and express.json.
 To set up:
-npm is installed with
-```npm ci```
-```npm install --save-dev jest```
-the frontend and backend can be run with
+First, check if you have npm installed by running 
+```npm -v```. If you do not have npm installed, go to  https://nodejs.org/en/download/ and install it according to your operating system.
+All of the project's packages and dependencies can be installed with 
+```npm ci```. To allow for testing, run
+```npm install --save-dev jest```. Both
+the frontend and the backend can be run with the command
 ```npm start```
 in their respective folders.
 
