@@ -3,6 +3,12 @@ const UserSchema = require("./user.js");
 
 let dbConnection;
 
+function setConnection(newConn){
+   dbConnection = newConn;
+   return dbConnection;
+ }
+
+
 function getDbConnection() {
     if (!dbConnection) {
         dbConnection = mongoose.createConnection("mongodb+srv://fdudley:rPQfpsytNB7oC4Fy@spotigodb.bxewpi2.mongodb.net/?retryWrites=true&w=majority", {
@@ -46,7 +52,7 @@ async function updateUser(user) {
     try {
         var myquery = { email: user.email };
         var newvalues = { $set: { liked_songs: user.liked_songs, generated_songs: user.generated_songs } };
-        await userModel.collection("users_list").updateOne(myquery, newvalues, function (err, res) {
+        const updatedUser = await userModel.collection("users_list").updateOne(myquery, newvalues, function (err, res) {
             if (err) return false;
             console.log("1 document updated");
         });
@@ -57,6 +63,7 @@ async function updateUser(user) {
     }
 }
 
+exports.setConnection = setConnection;
 exports.getUsers = getUsers;
 exports.postUser = postUser;
 exports.updateUser = updateUser;

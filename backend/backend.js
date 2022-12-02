@@ -19,10 +19,8 @@ app.get('/', (req, res) => {
 /* send to home page */
 
 app.get('/home', async (req, res) => {
-   const genre = req.query['genre'];
-   const bpm = req.query['bpm'];
    try {
-      const result = await playlistUtil.getPlaylists(genre, bpm);
+      const result = await playlistUtil.getPlaylists();
       res.send({playlist_list: result});
    }
    catch(error){
@@ -55,7 +53,6 @@ app.post('/users', async (req, res) => {
 app.put('/users', async (req, res) => {
    const user = req.body;
    const updatedUser = await userUtil.updateUser(user);
-   console.log(updatedUser);
    if (updatedUser)
        res.status(201).send(updatedUser);
    else
