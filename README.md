@@ -45,7 +45,7 @@ or
 
 <h1> Sequence Diagram for Login Flow: </h1>
 
-<img src = 'https://github.com/piinabisket/Spotigo/blob/main/materials/Sequence%20Diagram.png?raw=true' width=50% height=50%>
+<img src = 'https://user-images.githubusercontent.com/55904876/205381237-082a4d85-9be7-4692-a930-f374ef10ebb6.jpg?raw=true' width=50% height=50%>
 
 <h1> Code Coverage Report: </h1>
 
