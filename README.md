@@ -35,7 +35,7 @@ It can be installed with
 and run with
 ```npx eslint .```
 or
-```npm test```
+```npm test```.
 
 <h1> Class Diagram: </h1>
 
