@@ -1,4 +1,4 @@
-![SpotigoCI](https://github.com/piinabisket/Spotigo/actions/workflows/node.js.yml/badge.svg)
+![SpotigoFrontend](https://github.com/piinabisket/Spotigo/actions/workflows/frontend.yml) ![SpotigoCI](https://github.com/piinabisket/Spotigo/actions/workflows/node.js.yml/badge.svg)
 
 # Spotify BPM Playlist Generator
 
