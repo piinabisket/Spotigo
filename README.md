@@ -2,7 +2,7 @@
 
 # Spotify BPM Playlist Generator - Spotigo!
 
-Spotigo Is an all-in-one solution for discovering and creating playlists based off of BPM.
+<a href="https://www.spotigo.site">Spotigo</a> is an all-in-one solution for discovering and creating playlists based off of BPM.
 The core functionality of the site is the playlist generator. It takes in a BPM and automatically
 generates a playlist consisting of songs near the given BPM. 
 - This would be a useful tool for quickly creating and sharing workout playlists, tailored to your likes and interests.
