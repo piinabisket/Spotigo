@@ -14,8 +14,7 @@ generates a playlist consisting of songs near the given BPM.
 
 
 <h1>Prototype:</h1>
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxZggrNkc4vgaNoWWnbD3Dv%2FSpotifyBPM%3Fpage-id%3D0%253A1%26node-id%3D0%253A3%26viewport%3D177%252C352%252C0.19%26scaling%3Dscale-down%26starting-point-node-id%3D0%253A3" allowfullscreen></iframe>
-
+https://www.figma.com/proto/xZggrNkc4vgaNoWWnbD3Dv/SpotifyBPM?page-id=0%3A1&node-id=0%3A3&viewport=177%2C352%2C0.19&scaling=scale-down&starting-point-node-id=0%3A3
 
 <h1>Environment Setup:</h1>
 
