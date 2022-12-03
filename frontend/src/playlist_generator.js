@@ -1,5 +1,3 @@
-//import { useEffect } from "react";
-//import { Router } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./css/playlist_generator.css"
@@ -9,18 +7,16 @@ import React, { useState } from "react";
 export default function PlaylistGenerator() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    // Constant to get a users liked songs
+
     const getSongs = async (playlist_url) => {
         const { data } = await axios.get(playlist_url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
             }
         });
-        console.log(data);
         return data;
     }
 
-    // Get username so we can use it in createPlaylist
     const getUserId = async () => {
         const url = 'https://api.spotify.com/v1/me';
         const { data } = await axios.get(url, {
@@ -31,6 +27,7 @@ export default function PlaylistGenerator() {
         return data.id;
     }
 
+    // We need to encode the image for the spotify api call in updatePlaylistCover
     function encodeImageFileAsURL() {
         if (document.getElementById('albumCov').files[0]) {
             var file = document.getElementById('albumCov').files[0];
@@ -52,13 +49,10 @@ export default function PlaylistGenerator() {
         const url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/images';
         let img_data = "";
         await encodeImageFileAsURL().then(function (data) {
-            console.log(data.substring(23));
             img_data = data.substring(23);
         }, function (errData) {
             alert(errData);
         });
-
-        console.log("here");
 
         await axios.put(url, img_data, {
             headers: {
@@ -68,7 +62,6 @@ export default function PlaylistGenerator() {
         })
     }
 
-    //Creates an empty playlist
     const createPlaylist = async (userId) => {
         const url = 'https://api.spotify.com/v1/users/' + userId + '/playlists';
         const title = document.getElementById('playlist_title').value;
@@ -88,14 +81,12 @@ export default function PlaylistGenerator() {
         localStorage.setItem("playlistId", data.data.id);
 
         if (document.getElementById('albumCov').files[0]) {
-            console.log('image exists');
             updatePlaylistCover(data.data.id);
         }
 
         return data.data.id;
     }
 
-    //Add songs into playlist
     const addTracksToPlaylist = async (playlistId, songs) => {
         const url = 'https://api.spotify.com/v1/playlists/' + playlistId + '/tracks';
 
@@ -112,9 +103,8 @@ export default function PlaylistGenerator() {
         await axios.post(url, JSON.stringify(trackData), config);
     }
 
-    //Function to get track tempo
     const getAudioAnalysis = async (track_id) => {
-        const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; // need to instantiate track_id
+        const url = 'https://api.spotify.com/v1/audio-analysis/' + track_id; 
         const { data } = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
@@ -123,15 +113,12 @@ export default function PlaylistGenerator() {
         return data.track.tempo;
     }
 
-    // Returns a list of song that matches input tempo
     async function getSongsWithTempo() {
         let url = "https://api.spotify.com/v1/me/tracks?offset=0&limit=50&locale=en-US,en;q=0.5"
         let data = await getSongs(url);
         let songs = [];
         let tempoMatched = [];
         const userBpm = document.getElementById('userBpm').value;
-        console.log("first 50");
-        console.log(data);
 
         while (data) {
             for (let i = 0; i < data.items.length; i++) {
@@ -143,7 +130,6 @@ export default function PlaylistGenerator() {
                 let max = tempo + 5;
 
                 if (userBpm >= min & userBpm <= max) {
-                    console.log('YES')
                     tempoMatched.push(data.items[i].track.uri);
                 }
             }
@@ -155,15 +141,9 @@ export default function PlaylistGenerator() {
             else {
                 data = null;
             }
-            console.log("next 50");
         }
-
         return tempoMatched;
     }
-
-    // async function changeImage() {
-    //   document.getElementById("album-cover-pg").src = document.getElementById("albumCov").value;
-    // }
 
     async function createPlaylistByTempo() {
         setIsLoading(true);
@@ -204,7 +184,6 @@ export default function PlaylistGenerator() {
 
         navigate(`/playlist/${playlistId}`);
     }
-
 
     return (
         <html>
