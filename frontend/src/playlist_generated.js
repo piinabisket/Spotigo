@@ -11,7 +11,6 @@ export default function PlaylistGenerated() {
     const [albumCover, setAlbumCover] = useState();
     const [author_url, setAuthorUrl] = useState();
 
-    // This function likes the playlist into our database if not already, and removes it otherwise.
     async function likePlaylist() {
         var img = document.getElementById("likeButton");
         if (img.className === "liked-button") {
@@ -19,7 +18,6 @@ export default function PlaylistGenerated() {
                 method: 'get',
                 url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
             });
-            console.log(response);
             response.data.users_list[0].liked_songs = response.data.users_list[0].liked_songs.filter(function(item) {
                 return item !== id;
             });
@@ -55,7 +53,6 @@ export default function PlaylistGenerated() {
         }
     }
 
-    // This function likes the playlist into the user's spotify account
     async function likePlaylistToSpotify() {
         try {
             await axios({
@@ -75,7 +72,6 @@ export default function PlaylistGenerated() {
     useEffect(() => {
         async function parsePlaylist(id) {
             const url = `https://api.spotify.com/v1/playlists/${id}`;
-            console.log(localStorage.accessToken);
             const { data } = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${localStorage.accessToken}`,
@@ -96,7 +92,6 @@ export default function PlaylistGenerated() {
                 img.src = "likeButton.png"
             }
 
-            // set playlist author and playlist title attributes for HTML
             var auth_desc = data.owner.display_name;
             if (data.description)
                 auth_desc += ' | ' + data.description;
@@ -105,9 +100,7 @@ export default function PlaylistGenerated() {
             document.getElementById('playlist-owner-desc').innerHTML = auth_desc;
             document.getElementById('playlist-name-title').innerHTML = data.name;
 
-            // Fill the array with "songs" to be printed by the table
             const songs = { listOfSongs: [], albumCover: data.images[0].url, authorUrl: data.external_urls.spotify }
-            console.log(data);
             for (let i = 0; i < data.tracks.items.length; i++) {
                 songs['listOfSongs'].push(
                     {
@@ -122,7 +115,6 @@ export default function PlaylistGenerated() {
             return songs;
         }
 
-        // useState calls to update state of album cover, album url, and list of songs
         parsePlaylist(id).then(result => {
             if (result) {
                 setPlaylist(result['listOfSongs']);
@@ -152,15 +144,12 @@ export default function PlaylistGenerated() {
         initialize_like_button();
     }, [id]);
 
-
-    // Converts the length of the playlist into minutes and seconds; spotify returns milliseconds
     function millisToMinutesAndSeconds(millis) {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
-    // HTML body of the page
     return (
         <html>
             <div id="conditional">
