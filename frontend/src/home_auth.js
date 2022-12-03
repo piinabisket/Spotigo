@@ -49,6 +49,23 @@ export default function HomeAuth() {
             }
         });
         localStorage.setItem("email", data.email);
+
+        const response = await axios({
+            method: 'get',
+            url: 'https://spotigo.azurewebsites.net/users?email=' + data.email,
+        });
+
+        console.log(response.data.users_list.length);
+
+        if (response.data.users_list.length === 0) {
+            try {
+                await axios.post('https://spotigo.azurewebsites.net/users', { email: data.email});
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
         return data.email;
     }
 

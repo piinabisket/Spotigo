@@ -63,9 +63,22 @@ async function updateUser(user) {
     }
 }
 
+async function deleteByEmail(email) {
+    const userModel = getDbConnection().model("User", UserSchema);
+    try {
+       return await userModel.deleteOne({ 'email': email });
+    }
+    catch (error) {
+       console.log(error);
+       return false;
+    }
+ }
+
 exports.setConnection = setConnection;
 exports.getUsers = getUsers;
 exports.postUser = postUser;
 exports.updateUser = updateUser;
+exports.deleteUser = deleteByEmail;
+
 
 

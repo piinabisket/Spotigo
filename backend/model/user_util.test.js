@@ -25,20 +25,20 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-   let dummyUser = {
-     email: "Bender@benderisgreat.com",
-     liked_songs: [],
-     generated_songs: []
-   };
-   let result = new userModel(dummyUser);
-   await result.save();
+  let dummyUser = {
+    email: "Bender@benderisgreat.com",
+    liked_songs: [],
+    generated_songs: []
+  };
+  let result = new userModel(dummyUser);
+  await result.save();
 
-   dummyUser = {
-      email: "Fry@spotigo.com"
-   };
-   result = new userModel(dummyUser);
-   await result.save();
- });
+  dummyUser = {
+    email: "Fry@spotigo.com"
+  };
+  result = new userModel(dummyUser);
+  await result.save();
+});
 
 afterAll(async () => {
   await conn.dropDatabase();
@@ -47,28 +47,34 @@ afterAll(async () => {
 });
 
 afterEach(async () => {
-   await userModel.deleteMany();
- });
+  await userModel.deleteMany();
+});
 
- test("Fetching all users", async () => {
-   const users = await userUtil.getUsers();
-   expect(users).toBeDefined();
-   expect(users.length).toBeGreaterThan(0);
- });
+test("Fetching all users", async () => {
+  const users = await userUtil.getUsers();
+  expect(users).toBeDefined();
+  expect(users.length).toBeGreaterThan(0);
+});
 
- test("Fetching 1 user", async () => {
-   const users = await userUtil.getUsers("Bender@benderisgreat.com");
-   expect(users).toBeDefined();
-   expect(users.length).toBeGreaterThan(0);
-   users.forEach((user) => expect(user.email).toBe("Bender@benderisgreat.com"))
- });
+test("Fetching 1 user", async () => {
+  const users = await userUtil.getUsers("Bender@benderisgreat.com");
+  expect(users).toBeDefined();
+  expect(users.length).toBeGreaterThan(0);
+  users.forEach((user) => expect(user.email).toBe("Bender@benderisgreat.com"))
+});
 
- test("Post user", async () => {
-   const users = await userUtil.postUser("Leela@1bdI.com");
-   expect(users).toBeDefined();
- });
+test("Post user", async () => {
+  const users = await userUtil.postUser("Leela@1bdI.com");
+  expect(users).toBeDefined();
+});
 
- test("Update user", async () => {
-  const updatedUser = await userUtil.updateUser({email: "bender@benderisgreat.com", liked_songs: ["test"]});
+test("Update user", async () => {
+  const updatedUser = await userUtil.updateUser({ email: "bender@benderisgreat.com", liked_songs: ["test"] });
   expect(updatedUser).toBeTruthy();
+});
+
+test("Delete user", async () => {
+  await userUtil.deleteUser("Fry@spotigo.com");
+  const database = await userUtil.getUsers();
+  expect(database.length).toEqual(1);
 });
