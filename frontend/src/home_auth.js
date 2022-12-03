@@ -7,20 +7,17 @@ export default function HomeAuth() {
     const [popular_playlists, setPopularPlaylists] = useState([]);
     const [liked_and_generated_playlists, setLikedAndGeneratedPlaylists] = useState([]);
 
-    // Backend call to retreive all the playlists
     async function get_popular_playlists() {
         try {
             const response = await axios.get('https://spotigo.azurewebsites.net/home');
             return response.data.playlist_list;
         }
         catch (error) {
-            //We're not handling errors. Just logging into the console.
             console.log(error);
             return false;
         }
     }
 
-    // On window load, use the above method to load in the popular playlists
     useEffect(() => {
         get_popular_playlists().then(result => {
             if (result)
@@ -28,7 +25,6 @@ export default function HomeAuth() {
         });
     }, []);
 
-    // Parse the user's access token from the URL
     const getTokenFromUrl = (hash) => {
         const accessToken = hash.substring(1);
         const paramsInUrl = accessToken.split('&');
@@ -40,7 +36,6 @@ export default function HomeAuth() {
         return paramsSplit;
     }
 
-    // Spotify API call to get the user's email; used in useEffect below
     async function get_user_email() {
         const url = "https://api.spotify.com/v1/me";
         const { data } = await axios.get(url, {
@@ -55,12 +50,9 @@ export default function HomeAuth() {
             url: 'https://spotigo.azurewebsites.net/users?email=' + data.email,
         });
 
-        console.log(response.data.users_list.length);
-
         if (response.data.users_list.length === 0) {
             try {
-                await axios.post('https://spotigo.azurewebsites.net/users', { email: data.email});
-
+                await axios.post('https://spotigo.azurewebsites.net/users', { email: data.email });
             } catch (error) {
                 console.log(error);
             }
@@ -69,7 +61,6 @@ export default function HomeAuth() {
         return data.email;
     }
 
-    // On window load, load the user's accesstoken, token type, expiration, and email into local storage
     useEffect(() => {
         if (window.location.hash.includes("access_token")) {
             localStorage.clear();
@@ -86,21 +77,17 @@ export default function HomeAuth() {
     }, []);
 
     async function get_liked_and_generated_playlists() {
-
-        // Used in loop at the bottom to get playlist from the database
         async function fetch_playlist(id) {
             try {
                 const response = await axios.get(('https://spotigo.azurewebsites.net/generated/' + id));
                 return response.data.playlist_list[0];
             }
             catch (error) {
-                //We're not handling errors. Just logging into the console.
                 console.log(error);
                 return false;
             }
         }
 
-        // Get the user's email
         const url = "https://api.spotify.com/v1/me";
         const { data } = await axios.get(url, {
             headers: {
@@ -108,19 +95,16 @@ export default function HomeAuth() {
             }
         });
 
-        // Use the user's email to generate a set of the user's liked and generated playlists (no duplicates!)
         let playlists;
         try {
             const response = await axios.get(('https://spotigo.azurewebsites.net/users?email=' + data.email));
             playlists = [...new Set([...response.data.users_list[0].liked_songs, ...response.data.users_list[0].generated_songs])]
         }
         catch (error) {
-            //We're not handling errors. Just logging into the console.
             console.log(error);
             return false;
         }
 
-        // For loop to convert the array of ids into an array of playlist json objects
         let playlist_jsons = [];
         let promises = [];
         for (let i = 0; i < playlists.length; i++) {
@@ -129,12 +113,10 @@ export default function HomeAuth() {
             }))
         };
 
-        // wait for the promises form axios to be resolved then return it
         await Promise.all(promises).then(() => console.log(playlist_jsons));
         return playlist_jsons;
     }
 
-    // Use the above method to load in the user's liked and generated playlists
     useEffect(() => {
         get_liked_and_generated_playlists().then(result => {
             if (result)
@@ -142,7 +124,6 @@ export default function HomeAuth() {
         });
     }, []);
 
-    // HTML (what the user sees)
     return (
         <div>
             <h1 className="home-header">
@@ -163,7 +144,6 @@ export default function HomeAuth() {
 
                 <div className="playlist-list">
                     {
-                        // This is a for loop to load in the user's liked and generated playlists into html format
                         popular_playlists.map((row, index) => {
                             if (index === 0) {
                                 return (
@@ -198,9 +178,7 @@ export default function HomeAuth() {
                 <h1 className="liked-and-generated">Liked and Generated Playlists</h1>
                 <div class="playlist-list-1">
                     {
-                        // This is a for loop to load in the user's liked and generated playlists into html format
                         liked_and_generated_playlists.map((row, index) => {
-                            console.log(row);
                             if (index === 0) {
                                 return (
                                     <div key={index} className="playlist-tile">
