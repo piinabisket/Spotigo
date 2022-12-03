@@ -179,7 +179,7 @@ export default function HomeAuth() {
                         })}
                 </div>
                 <h1 className="liked-and-generated">Liked and Generated Playlists</h1>
-                <div class="playlist-list-1">
+                <div class="playlist-list">
                     {
                         // This is a for loop to load in the user's liked and generated playlists into html format
                         liked_and_generated_playlists.map((row, index) => {
@@ -200,7 +200,7 @@ export default function HomeAuth() {
                             }
                             else {
                                 return (
-                                    <div key={index} className="playlist-tile-1">
+                                    <div key={index} className="playlist-tile">
                                         <div className="overlap-group">
                                             <Link to={'/playlist/' + row.sid}>
                                                 <img className="album-cover-home" src={row.album_cover} alt={index}></img>
