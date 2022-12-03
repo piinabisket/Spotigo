@@ -9,7 +9,7 @@ const port = 4000;
 
 app.use(cors());
 app.use(express.json());
-ß
+
 app.get('/', (req, res) => {
    res.send('Hello World!');
 });
