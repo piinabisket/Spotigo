@@ -38,7 +38,7 @@ It can be installed with
 and run with
 ```npx eslint .```
 or
-```npm test```.
+```npm test```. All of the guidelines for eslint will already be set up in the .eslintrc.js file upon cloning the repo.
 
 <h1> Class Diagram: </h1>
 
@@ -52,11 +52,12 @@ Last edited: 12/2/2022
 
 <h1> Code Coverage Report: </h1>
 
-| File        | % Stmts | % Branch | % Funcs | % Lines |
-|-------------|---------|----------|---------|---------|
-| All files   |   85.33 |     62.5 |     100 |   86.48 |
-| playlist.js |     100 |      100 |     100 |     100 |
-| ...utils.js |   84.84 |       50 |     100 |   84.84 |
-| user.js     |     100 |      100 |     100 |     100 |
-| ...utils.js |   83.33 |    66.66 |     100 |   85.71 |
-Last edited: 12/1/2022
+File               | % Stmts | % Branch | % Funcs | % Lines | 
+-------------------|---------|----------|---------|---------|
+All files          |   83.95 |     62.5 |     100 |      85 |                      
+ playlist.js       |     100 |      100 |     100 |     100 |                      
+ playlist_utils.js |   84.84 |       50 |     100 |   84.84 |      
+ user.js           |     100 |      100 |     100 |     100 |                      
+ user_utils.js     |   80.95 |    66.66 |     100 |   82.92 | 
+
+Last edited: 12/2/2022
