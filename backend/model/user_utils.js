@@ -3,11 +3,10 @@ const UserSchema = require("./user.js");
 
 let dbConnection;
 
-function setConnection(newConn){
-   dbConnection = newConn;
-   return dbConnection;
- }
-
+function setConnection(newConn) {
+    dbConnection = newConn;
+    return dbConnection;
+}
 
 function getDbConnection() {
     if (!dbConnection) {
@@ -66,13 +65,13 @@ async function updateUser(user) {
 async function deleteByEmail(email) {
     const userModel = getDbConnection().model("User", UserSchema);
     try {
-       return await userModel.deleteOne({ 'email': email });
+        return await userModel.deleteOne({ 'email': email });
     }
     catch (error) {
-       console.log(error);
-       return false;
+        console.log(error);
+        return false;
     }
- }
+}
 
 exports.setConnection = setConnection;
 exports.getUsers = getUsers;
