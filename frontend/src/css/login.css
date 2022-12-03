@@ -16,6 +16,45 @@
     background-Repeat: 'no-repeat';
 }
 
+.attributions {
+   height: 70px;
+   background-image: "../../assets/azure.svg";
+   background-size: cover;
+   background-position: center;
+   background-Repeat: 'no-repeat';
+}
+
+a:link {
+   text-decoration: none;
+ }
+ 
+ a:visited {
+   text-decoration: none;
+ }
+ 
+ a:hover {
+   text-decoration: underline;
+ }
+ 
+ a:active {
+   text-decoration: underline;
+ }
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    width: 100vw;
+    margin-top: 36vh;
+    margin-bottom: 0px;
+}
+
+.powered_by {
+    font-size: 20px;
+    color: #1DB954;
+    align-self: right;
+}
+
 /* Used for setting the green bar at the top with the black spotigo text 
     !!! Reuse this for any time you need to paste the header bar and logo !!!
 */

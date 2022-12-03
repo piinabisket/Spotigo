@@ -40,6 +40,12 @@ export default function App() {
                     >
                         Continue without login
                     </a>
+                    {/* <div class="footer">
+                       <div class="attributes" align-self="left" margin-left="35px" margin-bottom="35px" alt="Azure logo"></div>
+                       <a href="https://github.com/piinabisket/repositories/spotigo" color="whitesmoke" font-size="25px" align-self="center">Github Repository</a>
+                       <a align-self="right" class="powered_by" href="https://spotify.com">Powered by</a>
+                       <div class="attributes" align-self="right" height="70px" margin-right="35px" margin-bottom="35px" background-image="url(../../assets/Spotify_Logo_RGB_Black.png)" alt="Spotify logo"/>
+                    </div> */}
                 </header>
             </body>
         </html>
