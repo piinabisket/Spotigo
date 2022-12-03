@@ -59,6 +59,18 @@ app.put('/users', async (req, res) => {
        res.status(500).end();
 });
 
+app.delete('/users/:email', async (req, res) => {
+   const email = req.params['email'];
+   const status = await userUtil.deleteUser(email)
+   if (status){
+      res.status(204).end();
+   }
+   else{
+      res.status(404).send('User not found');
+   }
+});
+
+
 app.put('/playlist/', async (req, res) => {
    const sid = req.body[0];
    const albumCover = req.body[1];
