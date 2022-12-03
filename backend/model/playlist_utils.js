@@ -3,10 +3,10 @@ const PlaylistSchema = require("./playlist");
 
 let dbConnection;
 
-function setConnection(newConn){
+function setConnection(newConn) {
    dbConnection = newConn;
-   return dbConnection;
- }
+   return dbConnection;ß
+}
 
 function getDbConnection() {
    if (!dbConnection) {
@@ -50,16 +50,11 @@ async function getPlaylists() {
    return result;
 }
 
-async function updatePlaylistArt(id, albumCover){
+async function updatePlaylistArt(id, albumCover) {
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-   const result = await playlistModel.updateOne({'sid': id}, {'album_cover': albumCover});
+   const result = await playlistModel.updateOne({ 'sid': id }, { 'album_cover': albumCover });
    return result;
 }
-
-// async function findPlaylistByName(name){
-//    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
-//    return await playlistModel.find({'name':name});
-// }
 
 async function getBySid(sid) {
    const playlistModel = getDbConnection().model("Playlist", PlaylistSchema);
