@@ -7,22 +7,6 @@ export default function HomeAuth() {
     const [popular_playlists, setPopularPlaylists] = useState([]);
     const [liked_and_generated_playlists, setLikedAndGeneratedPlaylists] = useState([]);
 
-    /* Remove the comment code below before submission !!! */
-    
-    /*
-    const search_song = async () => {
-        const url = 'https://api.spotify.com/v1/search';
-        const searchQuery = document.getElementById('song_query').value;
-        const typeQuery = `type=track`;
-        const { data } = await axios.get(`${url}?q=${searchQuery}&${typeQuery}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`,
-            }
-        });
-        return data;
-    } 
-    */
-
     // Backend call to retreive all the playlists
     async function get_popular_playlists() {
         try {
