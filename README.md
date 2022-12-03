@@ -43,10 +43,12 @@ or
 <h1> Class Diagram: </h1>
 
 <img src = 'https://github.com/piinabisket/Spotigo/blob/main/materials/Class%20Diagram.png?raw=true' width=50% height=50%>
+Last edited:10/30/2022
 
 <h1> Sequence Diagram for Login Flow: </h1>
 
 <img src = 'https://user-images.githubusercontent.com/55904876/205381237-082a4d85-9be7-4692-a930-f374ef10ebb6.jpg?raw=true' width=50% height=50%>
+Last edited: 12/2/2022
 
 <h1> Code Coverage Report: </h1>
 
@@ -57,4 +59,4 @@ or
 | ...utils.js |   84.84 |       50 |     100 |   84.84 |
 | user.js     |     100 |      100 |     100 |     100 |
 | ...utils.js |   83.33 |    66.66 |     100 |   85.71 |
-Generated on 12/1/2022
+Last edited: 12/1/2022
