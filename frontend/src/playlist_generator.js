@@ -32,7 +32,7 @@ export default function PlaylistGenerator() {
     }
 
     function encodeImageFileAsURL() {
-        if(document.getElementById('albumCov').files[0]){
+        if (document.getElementById('albumCov').files[0]) {
             var file = document.getElementById('albumCov').files[0];
 
             return new Promise(function (resolve, reject) {
@@ -64,7 +64,7 @@ export default function PlaylistGenerator() {
             headers: {
                 Authorization: `Bearer ${localStorage.accessToken}`,
                 'Content-Type': 'image/json'
-                }
+            }
         })
     }
 
@@ -87,7 +87,7 @@ export default function PlaylistGenerator() {
         const data = await axios.post(url, JSON.stringify(playlistData), config);
         localStorage.setItem("playlistId", data.data.id);
 
-        if(document.getElementById('albumCov').files[0]){
+        if (document.getElementById('albumCov').files[0]) {
             console.log('image exists');
             updatePlaylistCover(data.data.id);
         }
@@ -184,6 +184,21 @@ export default function PlaylistGenerator() {
             await axios.post('https://spotigo.azurewebsites.net/home', { name: title, sid: playlistId, album_cover: data.images[0].url, description: desc, bpm: bpm, views: 1 });
         }
         catch (error) {
+            alert(error);
+        }
+
+        const response = await axios({
+            method: 'get',
+            url: 'https://spotigo.azurewebsites.net/users?email=' + localStorage.email,
+        });
+        response.data.users_list[0].generated_songs.push(playlistId);
+        try {
+            await axios({
+                method: 'put',
+                url: "https://spotigo.azurewebsites.net/users",
+                data: response.data.users_list[0]
+            });
+        } catch (error) {
             alert(error);
         }
 
