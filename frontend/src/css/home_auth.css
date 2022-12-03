@@ -242,9 +242,9 @@
 
 .album-cover-home {
     border: 1px none;
-    min-height: 34vh;
+    height: 250px;
     margin-top: 50px !important;
-    width: 19.2vw;
+    width: 250px;
 }
 
 .playlist_description {
