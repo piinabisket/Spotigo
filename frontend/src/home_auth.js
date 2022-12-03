@@ -176,7 +176,7 @@ export default function HomeAuth() {
                         })}
                 </div>
                 <h1 className="liked-and-generated">Liked and Generated Playlists</h1>
-                <div class="playlist-list-1">
+                <div class="playlist-list">
                     {
                         liked_and_generated_playlists.map((row, index) => {
                             if (index === 0) {
@@ -195,7 +195,7 @@ export default function HomeAuth() {
                             }
                             else {
                                 return (
-                                    <div key={index} className="playlist-tile-1">
+                                    <div key={index} className="playlist-tile">
                                         <div className="overlap-group">
                                             <Link to={'/playlist/' + row.sid}>
                                                 <img className="album-cover-home" src={row.album_cover} alt={index}></img>
